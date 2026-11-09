@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Coffee roasters of Sweden</title>
+<meta name="description" content="A map of every coffee roaster in Sweden that OpenStreetMap knows about.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='9' fill='%23A9B795'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;600&display=swap">
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--APP-->
+<div id="app">
+  <aside id="panel">
+    <button id="sheetHandle" type="button" aria-label="Show or hide the list"></button>
+    <header class="head">
+      <canvas id="contour" aria-hidden="true"></canvas>
+      <a class="wordmark" href="https://github.com/lukasposolda-qwertz">Lukas Posolda</a>
+      <span class="figure coord">62.0° N · 15.0° E</span>
+      <h1>Coffee roasters <em class="key">of Sweden</em></h1>
+      <p class="lead">Every place OpenStreetMap tags as a coffee roaster, plus cafés that roast on site.</p>
+      <div class="stat" aria-live="polite"><span class="n" id="count">–</span><span class="small" id="countLabel">loading</span></div>
+    </header>
+    <div class="controls">
+      <input id="q" type="search" placeholder="Search name or town" autocomplete="off" aria-label="Search roasters">
+      <div class="tags" role="group" aria-label="Filters">
+        <button type="button" class="tag" id="g-roaster" aria-pressed="true"><span class="dot s1"></span>Roasters <span class="n"></span></button>
+        <button type="button" class="tag" id="g-micro" aria-pressed="true"><span class="dot s2"></span>Roasting cafés <span class="n"></span></button>
+        <button type="button" class="tag" id="fHours" aria-pressed="false">With hours <span class="n"></span></button>
+        <button type="button" class="tag" id="fOpen" aria-pressed="false">Open now <span class="n"></span></button>
+      </div>
+      <div class="sortrow">
+        <label class="label" for="sort">Sort</label>
+        <select id="sort"><option value="name">Name A–Z</option><option value="near">Nearest to me</option><option value="view">In map view</option></select>
+      </div>
+    </div>
+    <ul id="list"></ul>
+    <footer>
+      <p id="foot">Loading data</p>
+      <div class="row"><span class="figure" id="snap"></span><a href="https://github.com/lukasposolda-qwertz/coffee-roasters-of-sweden">Source on GitHub →</a></div>
+    </footer>
+  </aside>
+  <div id="map" role="region" aria-label="Map of coffee roasters in Sweden"></div>
+</div>
+<!--/APP-->
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
