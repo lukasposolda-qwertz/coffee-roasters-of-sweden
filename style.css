@@ -6,7 +6,7 @@
   --fog: #D6DAD5; --contour: #9DB5B1; --focus: var(--spruce);
   --series-1: #23605F; --series-2: #C08A1E; --series-3: #A9B795; --series-4: #5D7A8C;
   /* map surfaces, all from the palette */
-  --map-land: var(--paper); --map-water: var(--fog); --map-road: var(--paper-raised); --map-label: var(--ink-muted);
+  --map-land: #F3F4F1; --map-water: #D6DAD5; --map-road: #FFFFFF; --map-label: #56625F; /* paper, fog, paper-raised, ink-muted */
 
   --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
@@ -20,7 +20,7 @@
     --paper: #13201F; --paper-raised: #1A2928; --ink: #E4EAE7; --ink-muted: #A3B0AC;
     --spruce: #6FB3AF; --on-spruce: #13201F; --fog: #2C3B39; --contour: #2F4F4C; --ochre: #D9A53A;
     --series-1: #5FA3A0; --series-2: #D9A53A; --series-4: #8FA9B8;
-    --map-road: var(--fog);
+    --map-land: #1A2928; --map-water: #13201F; --map-road: #2C3B39; --map-label: #A3B0AC;
     color-scheme: dark;
   }
 }
@@ -28,7 +28,7 @@
   --paper: #13201F; --paper-raised: #1A2928; --ink: #E4EAE7; --ink-muted: #A3B0AC;
   --spruce: #6FB3AF; --on-spruce: #13201F; --fog: #2C3B39; --contour: #2F4F4C; --ochre: #D9A53A;
   --series-1: #5FA3A0; --series-2: #D9A53A; --series-4: #8FA9B8;
-  --map-road: var(--fog);
+  --map-land: #1A2928; --map-water: #13201F; --map-road: #2C3B39; --map-label: #A3B0AC;
   color-scheme: dark;
 }
 

@@ -18,7 +18,8 @@ data = json.loads((ROOT / "data" / "roasters.json").read_text(encoding="utf-8"))
 sweden = json.loads((ROOT / "data" / "sweden.geojson").read_text(encoding="utf-8"))
 js = (ROOT / "app.js").read_text(encoding="utf-8")
 safe = lambda o: json.dumps(o, ensure_ascii=False, separators=(",", ":")).replace("</", "<\/")
-page = f"""<title>Coffee roasters of Sweden</title>
+page = f"""<meta charset="utf-8">
+<title>Coffee roasters of Sweden</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;600&display=swap">
 <style>
 {css}

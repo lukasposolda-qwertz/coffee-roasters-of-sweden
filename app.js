@@ -9,7 +9,11 @@ const SWEDEN_INLINE = window.SWEDEN_INLINE || null;
 const TILE_STYLE = "https://tiles.openfreemap.org/styles/positron";
 
 const $ = id => document.getElementById(id);
-const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const css = v => { // resolves tokens that point at other tokens, e.g. --map-land: var(--paper)
+  const x = getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+  const m = x.match(/^var\((--[\w-]+)\)$/);
+  return m ? css(m[1]) : x;
+};
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const safeUrl = u => /^https?:\/\//i.test(u || "") ? u : null;
 const prettyHost = u => u.replace(/^https?:\/\/(www\.)?/, "").replace(/\/.*$/, "");
@@ -95,7 +99,7 @@ function drawContour() {
 /* ---------- state ---------- */
 let DATA = [], me = null, activeId = null, popup = null, tilesOk = false, map;
 const filt = { q: "", hours: false, open: false, groups: { roaster: true, micro: true } };
-const norm = s => (s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+const norm = s => (s || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 function km(a, b) {
   const R = 6371, r = Math.PI / 180, dl = (b.lat - a.lat) * r, dn = (b.lon - a.lon) * r;
   const x = Math.sin(dl / 2) ** 2 + Math.cos(a.lat * r) * Math.cos(b.lat * r) * Math.sin(dn / 2) ** 2;
