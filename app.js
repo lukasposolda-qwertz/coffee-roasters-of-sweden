@@ -76,26 +76,6 @@ function ohTable(oh) {
   return `<table>${h}</table>`;
 }
 
-/* ---------- contour field in the header: the page's one graphic device ---------- */
-function drawContour() {
-  const c = $("contour"); if (!c) return;
-  const r = c.getBoundingClientRect(), dpr = devicePixelRatio || 1;
-  c.width = r.width * dpr; c.height = r.height * dpr;
-  const g = c.getContext("2d"); g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, r.width, r.height);
-  g.strokeStyle = css("--contour");
-  const cx = r.width * 0.92, cy = r.height * 0.18;
-  for (let i = 1; i <= 14; i++) {
-    g.lineWidth = i % 5 === 0 ? 1.4 : 1; g.beginPath();
-    for (let a = 0; a <= Math.PI * 2 + 0.01; a += Math.PI / 90) {
-      const wob = 1 + 0.08 * Math.sin(a * 3 + i * 0.6) + 0.05 * Math.cos(a * 5 - i * 0.3);
-      const rad = i * 9 * wob;
-      const x = cx + Math.cos(a) * rad * 1.25, y = cy + Math.sin(a) * rad;
-      a === 0 ? g.moveTo(x, y) : g.lineTo(x, y);
-    }
-    g.stroke();
-  }
-}
-
 /* ---------- state ---------- */
 let DATA = [], me = null, activeId = null, popup = null, tilesOk = false, map;
 const filt = { q: "", hours: false, open: false, groups: { roaster: true, micro: true } };
@@ -213,10 +193,12 @@ function render() {
     properties: { id: r.id, group: r.group, name: r.name }, geometry: { type: "Point", coordinates: [r.lon, r.lat] } })) });
   const n = rows.length;
   $("count").textContent = fmt(n);
-  $("countLabel").innerHTML = `${n === 1 ? "roaster" : "roasters"} ${sort === "view" ? "in this view" : "shown"}<br>of ${fmt(DATA.length)} in OpenStreetMap`;
+  $("countLabel").textContent = (n === 1 ? "roaster" : "roasters") + (sort === "view" ? " in view" : "");
+  $("openCount").textContent = fmt(rows.filter(r => stateNow(r.oh)?.open).length);
+  $("townCount").textContent = fmt(new Set(rows.map(r => norm(r.city)).filter(Boolean)).size);
   $("list").innerHTML = n ? rows.map(r => {
     const st = stateNow(r.oh);
-    const side = sort === "near" && me ? `${r._d < 10 ? r._d.toFixed(1) : Math.round(r._d)} km` : st?.open ? "open" : "";
+    const side = sort === "near" && me ? `${r._d < 10 ? r._d.toFixed(1) : Math.round(r._d)} km` : st?.open ? `until ${hhmm(st.until)}` : "";
     return `<li data-id="${esc(r.id)}" tabindex="0"><span class="dot ${r.group === "micro" ? "s2" : "s1"}"></span>
       <span><span class="nm">${esc(r.name)}</span><span class="meta">${esc(r.city || r.address || "")}</span></span>
       <span class="side${st?.open && !(sort === "near" && me) ? " open" : ""}">${side}</span></li>`;
@@ -248,6 +230,15 @@ function wire() {
   $("list").addEventListener("click", pick);
   $("list").addEventListener("keydown", e => { if (e.key === "Enter") pick(e); });
   $("sheetHandle").onclick = () => $("panel").classList.toggle("collapsed");
+  const about = open => {
+    $("panel").classList.toggle("about-open", open);
+    $("about").hidden = !open;
+    $("aboutBtn").setAttribute("aria-expanded", String(open));
+    $("aboutBtn").textContent = open ? "Close" : "About";
+    if (open) { $("panel").classList.remove("collapsed"); $("about").scrollTop = 0; }
+  };
+  $("aboutBtn").onclick = () => about($("about").hidden);
+  $("aboutBack").onclick = () => about(false);
   if (isPhone()) $("panel").classList.add("collapsed");
 }
 function note(text) {
@@ -297,7 +288,7 @@ async function tilesReachable() {
 }
 const hadHash = /map=/.test(location.hash);
 async function start() {
-  wire(); drawContour();
+  wire();
   const [data, sweden, ok] = await Promise.all([
     INLINE ? INLINE : fetch("data/roasters.json").then(r => r.json()),
     SWEDEN_INLINE ? SWEDEN_INLINE : fetch("data/sweden.geojson").then(r => r.json()),
@@ -317,14 +308,12 @@ async function start() {
   await new Promise(r => map.once("load", r));
   addLayers(); recolour(); render();
   if (!hadHash) map.fitBounds([[10.9, 55.2], [24.2, 69.1]], { padding: paddingFor(), duration: 0 });
-  $("snap").textContent = `Snapshot ${data.snapshot}`;
-  $("foot").innerHTML = `Points are objects tagged <code>craft=coffee_roaster</code> or <code>microroasting=yes</code>. Some are the roaster's café or shop rather than the roastery itself. Missing a roaster? <a href="https://www.openstreetmap.org/" target="_blank" rel="noopener">Add it to OpenStreetMap</a>.`
-    + (tilesOk ? "" : " The background is a plain outline of Sweden because map tiles cannot load here.");
+  $("snap").textContent = `OpenStreetMap snapshot ${data.snapshot} · ${fmt(DATA.length)} places`;
+  $("tilesNote").hidden = tilesOk;
   const mq = matchMedia("(prefers-color-scheme: dark)");
-  const retheme = () => { drawContour(); recolour(); paintPoints(); render(); };
+  const retheme = () => { recolour(); paintPoints(); render(); };
   mq.addEventListener?.("change", retheme);
   new MutationObserver(retheme).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
-  addEventListener("resize", drawContour);
 }
-start().catch(err => { $("foot").textContent = "Could not load the data: " + err.message; });
+start().catch(err => { $("countLabel").textContent = "Could not load the data: " + err.message; });
 })();

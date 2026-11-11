@@ -18,20 +18,24 @@
   <aside id="panel">
     <button id="sheetHandle" type="button" aria-label="Show or hide the list"></button>
     <header class="head">
-      <canvas id="contour" aria-hidden="true"></canvas>
-      <a class="wordmark" href="https://github.com/lukasposolda-qwertz">Lukas Posolda</a>
-      <span class="figure coord">62.0° N · 15.0° E</span>
-      <h1>Coffee roasters <em class="key">of Sweden</em></h1>
-      <p class="lead">Every place OpenStreetMap tags as a coffee roaster, plus cafés that roast on site.</p>
-      <div class="stat" aria-live="polite"><span class="n" id="count">–</span><span class="small" id="countLabel">loading</span></div>
+      <div class="topline">
+        <h1>Coffee roasters <em class="key">of Sweden</em></h1>
+        <button type="button" class="linkbtn" id="aboutBtn" aria-expanded="false" aria-controls="about">About</button>
+      </div>
+      <p class="lead">Find a roastery near you and see who is open right now.</p>
+      <div class="stats" aria-live="polite">
+        <div><span class="n" id="count">–</span><span class="label" id="countLabel">roasters</span></div>
+        <div><span class="n open" id="openCount">–</span><span class="label">open now</span></div>
+        <div><span class="n" id="townCount">–</span><span class="label">towns</span></div>
+      </div>
     </header>
     <div class="controls">
       <input id="q" type="search" placeholder="Search name or town" autocomplete="off" aria-label="Search roasters">
       <div class="tags" role="group" aria-label="Filters">
-        <button type="button" class="tag" id="g-roaster" aria-pressed="true"><span class="dot s1"></span>Roasters <span class="n"></span></button>
+        <button type="button" class="tag" id="g-roaster" aria-pressed="true"><span class="dot s1"></span>Roasteries <span class="n"></span></button>
         <button type="button" class="tag" id="g-micro" aria-pressed="true"><span class="dot s2"></span>Roasting cafés <span class="n"></span></button>
-        <button type="button" class="tag" id="fHours" aria-pressed="false">With hours <span class="n"></span></button>
         <button type="button" class="tag" id="fOpen" aria-pressed="false">Open now <span class="n"></span></button>
+        <button type="button" class="tag" id="fHours" aria-pressed="false">With hours <span class="n"></span></button>
       </div>
       <div class="sortrow">
         <label class="label" for="sort">Sort</label>
@@ -39,10 +43,36 @@
       </div>
     </div>
     <ul id="list"></ul>
-    <footer>
-      <p id="foot">Loading data</p>
-      <div class="row"><span class="figure" id="snap"></span><a href="https://github.com/lukasposolda-qwertz/coffee-roasters-of-sweden">Source on GitHub →</a></div>
-    </footer>
+    <div id="about" class="about" hidden>
+      <section>
+        <span class="label">What is on the map</span>
+        <p>Places in Sweden where coffee is roasted: roasteries, and cafés that roast their own beans. Some points are a roaster's café or shop rather than the roastery itself.</p>
+        <ul class="legend">
+          <li><span class="dot s1"></span>Roastery</li>
+          <li><span class="dot s2"></span>Café that roasts on site</li>
+        </ul>
+      </section>
+      <section>
+        <span class="label">Opening hours</span>
+        <p>Hours come from OpenStreetMap and many roasteries have none listed. "Open now" uses your device's clock and does not know about public holidays, so check the roaster's own site before a long trip.</p>
+      </section>
+      <section>
+        <span class="label">Missing or wrong?</span>
+        <p>The map shows what is in OpenStreetMap. Add a roastery or fix its details there, and it appears here after the next weekly update. <a href="https://www.openstreetmap.org/" target="_blank" rel="noopener">Open OpenStreetMap →</a></p>
+      </section>
+      <section>
+        <span class="label">Data</span>
+        <p>Every object tagged <code>craft=coffee_roaster</code> or <code>microroasting=yes</code> in Sweden. E-mail addresses and phone numbers are left out.</p>
+        <span class="figure" id="snap"></span>
+        <p id="tilesNote" hidden>Map tiles cannot load here, so the background is a plain outline of Sweden.</p>
+      </section>
+      <section>
+        <span class="label">Credits</span>
+        <p>Data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>, ODbL. Map tiles <a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a>, © OpenMapTiles. Outline of Sweden from Natural Earth. Built with MapLibre GL JS.</p>
+        <p>A personal project by Lukas Posolda. <a href="https://github.com/lukasposolda-qwertz/coffee-roasters-of-sweden" target="_blank" rel="noopener">Source on GitHub →</a></p>
+      </section>
+      <button type="button" class="btn-back linkbtn back" id="aboutBack">Back to the list</button>
+    </div>
   </aside>
   <div id="map" role="region" aria-label="Map of coffee roasters in Sweden"></div>
 </div>

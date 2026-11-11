@@ -33,6 +33,7 @@
 }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html, body { margin: 0; height: 100%; }
 body { background: var(--paper); color: var(--ink); font: 400 16px/26px var(--font-sans); }
 h1, h2, h3 { margin: 0; text-wrap: balance; }
@@ -45,24 +46,33 @@ a { color: var(--spruce); text-underline-offset: 4px; text-decoration-thickness:
 .small { font: 400 14px/22px var(--font-sans); color: var(--ink-muted); }
 .dot { display: inline-block; width: 10px; height: 10px; border-radius: var(--radius-full); flex: none; }
 .dot.s1 { background: var(--series-1); } .dot.s2 { background: var(--series-2); }
-.wordmark { display: inline-flex; align-items: center; gap: 0.6em; font: 600 12px/1 var(--font-sans); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
-.wordmark::before { content: ""; width: 0.9em; height: 0.9em; border-radius: var(--radius-full); background: var(--lichen); }
 
 /* ---- app frame ---- */
 #app { display: grid; grid-template-columns: var(--panel-w) minmax(0, 1fr); height: 100%; }
 #map { position: relative; height: 100%; min-width: 0; background: var(--map-water); }
 #panel { display: flex; flex-direction: column; min-height: 0; min-width: 0; background: var(--paper); border-right: 1px solid var(--fog); z-index: 2; }
 
-/* header with the page's one contour field */
-.head { flex: none; position: relative; display: grid; gap: var(--space-3); padding: var(--space-6) var(--space-6) var(--space-4); overflow: hidden; }
-.head canvas { position: absolute; top: 0; right: 0; width: 60%; height: 100%; pointer-events: none; }
-.head > :not(canvas) { position: relative; }
-.head .coord { color: var(--spruce); font-size: 13px; }
-.head h1 { font: 300 34px/40px var(--font-sans); letter-spacing: -0.025em; }
-.head .lead { color: var(--ink-muted); font-size: 14px; line-height: 22px; max-width: 34ch; }
-.stat { display: flex; align-items: baseline; gap: var(--space-3); border-top: 2px solid var(--ink); padding-top: var(--space-3); }
-.stat .n { font: 400 40px/44px var(--font-mono); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
-.stat .small { line-height: 18px; }
+/* header: title, one line of purpose, three live figures */
+.head { flex: none; display: grid; gap: var(--space-3); padding: var(--space-6) var(--space-6) var(--space-4); }
+.topline { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-4); }
+.head h1 { font: 300 32px/38px var(--font-sans); letter-spacing: -0.025em; }
+.head .lead { color: var(--ink-muted); font-size: 15px; line-height: 22px; }
+.linkbtn { font: 500 12px/16px var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--spruce); background: none; border: 0; padding: 4px 0; cursor: pointer; white-space: nowrap; text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 2px solid var(--ink); padding-top: var(--space-3); gap: var(--space-3); }
+.stats div { display: grid; gap: 2px; min-width: 0; }
+.stats .n { font: 400 30px/34px var(--font-mono); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.stats .n.open { color: var(--spruce); }
+.stats .label { color: var(--ink-muted); }
+
+/* about view replaces the controls and the list */
+.about { flex: 1; min-height: 0; overflow: auto; display: grid; align-content: start; gap: var(--space-6); padding: var(--space-2) var(--space-6) calc(var(--space-8) + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--fog); }
+.about section { display: grid; gap: var(--space-2); }
+.about p, .about li { font-size: 15px; line-height: 24px; }
+.about ul { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--space-2); }
+.about .legend li { display: flex; align-items: center; gap: var(--space-2); }
+.about .figure { color: var(--ink-muted); font-size: 13px; }
+.about .back { justify-self: start; }
+#panel.about-open .controls, #panel.about-open #list { display: none; }
 
 /* controls */
 .controls { flex: none; display: grid; gap: var(--space-3); padding: 0 var(--space-6) var(--space-4); border-bottom: 1px solid var(--fog); }
@@ -88,9 +98,6 @@ input[type="search"]:focus, select:focus { outline: 2px solid var(--focus); outl
 #list .side.open { color: var(--spruce); }
 #list .empty { display: block; cursor: default; color: var(--ink-muted); border: 0; }
 
-footer { flex: none; display: grid; gap: var(--space-2); padding: var(--space-3) var(--space-6) calc(var(--space-4) + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--fog); font-size: 12px; line-height: 18px; color: var(--ink-muted); }
-footer .row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-2); }
-footer .figure { font-size: 12px; line-height: 18px; }
 #sheetHandle { display: none; }
 
 /* map controls and popup in Fieldnote dress */
@@ -126,15 +133,15 @@ footer .figure { font-size: 12px; line-height: 18px; }
   #map { grid-row: 1; }
   #panel { grid-row: 2; border-right: 0; border-top: 2px solid var(--ink); max-height: 64dvh; transition: max-height .25s; }
   #panel { overflow: hidden; }
-  #panel.collapsed { max-height: 248px; }
-  #panel.collapsed #list, #panel.collapsed footer, #panel.collapsed .sortrow { display: none; }
+  #panel.collapsed { max-height: 236px; }
+  #panel.collapsed #list, #panel.collapsed .sortrow, #panel.collapsed .about { display: none; }
   #sheetHandle { display: block; width: 40px; height: 4px; background: var(--fog); border: 0; padding: 0; margin: 8px auto 0; cursor: pointer; }
   .head { padding: var(--space-2) max(16px, env(safe-area-inset-right, 0px)) var(--space-2) max(16px, env(safe-area-inset-left, 0px)); gap: var(--space-2); }
   .head h1 { font-size: 24px; line-height: 30px; }
-  .head .lead, .head .coord, .head .wordmark { display: none; }
-  .stat { padding-top: var(--space-2); }
-  .stat .n { font-size: 28px; line-height: 32px; }
-  .controls, #list, footer { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .head .lead { display: none; }
+  .stats { padding-top: var(--space-2); }
+  .stats .n { font-size: 22px; line-height: 26px; }
+  .controls, #list, .about { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
   .tags { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
   .tag { flex: none; }
   .maplibregl-popup-content { max-width: 270px; }

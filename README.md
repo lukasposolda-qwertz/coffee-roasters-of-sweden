@@ -19,7 +19,7 @@ E-mail addresses and phone numbers are left out of the data on purpose.
 
 ## Design
 
-Fieldnote, my personal visual identity: IBM Plex Sans and IBM Plex Mono, spruce and ochre on paper, hairlines and one contour field. Light and dark themes follow the system setting.
+Fieldnote, my personal visual identity: IBM Plex Sans and IBM Plex Mono, spruce and ochre on paper, hairlines. The main view keeps only what helps you find a roastery; context and credits sit under "About". Light and dark themes follow the system setting.
 
 ## Data and credits
 
