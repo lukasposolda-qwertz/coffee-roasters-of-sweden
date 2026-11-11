@@ -1,0 +1,512 @@
+{
+"55.3774,13.0954": {
+"city": null,
+"municipality": "Trelleborgs kommun",
+"town": null,
+"village": "Kurland"
+},
+"55.4415,13.8427": {
+"city": null,
+"municipality": "Ystads kommun",
+"town": "Ystad",
+"village": null
+},
+"55.4647,13.1410": {
+"city": null,
+"municipality": "Vellinge kommun",
+"town": null,
+"village": "Östra Grevie"
+},
+"55.4966,13.8269": {
+"city": null,
+"municipality": "Ystads kommun",
+"town": null,
+"village": null
+},
+"55.5831,12.9321": {
+"city": "Malmö",
+"municipality": "Malmö kommun",
+"town": null,
+"village": null
+},
+"55.6045,13.0029": {
+"city": "Malmö",
+"municipality": "Malmö kommun",
+"town": null,
+"village": null
+},
+"55.6127,13.0190": {
+"city": "Malmö",
+"municipality": "Malmö kommun",
+"town": null,
+"village": null
+},
+"55.7038,13.1923": {
+"city": "Lund",
+"municipality": "Lunds kommun",
+"town": null,
+"village": null
+},
+"55.7181,13.3839": {
+"city": null,
+"municipality": "Lunds kommun",
+"town": null,
+"village": "Södra Sandby"
+},
+"56.0333,12.7051": {
+"city": "Helsingborg",
+"municipality": "Helsingborgs kommun",
+"town": null,
+"village": null
+},
+"56.1941,14.7558": {
+"city": null,
+"municipality": "Karlshamns kommun",
+"town": null,
+"village": "Mörrum"
+},
+"56.5031,13.0429": {
+"city": null,
+"municipality": "Laholms kommun",
+"town": "Laholm",
+"village": null
+},
+"56.5126,13.0753": {
+"city": null,
+"municipality": "Laholms kommun",
+"town": "Laholm",
+"village": null
+},
+"56.6727,16.3257": {
+"city": null,
+"municipality": "Kalmar kommun",
+"town": null,
+"village": null
+},
+"56.6771,12.8221": {
+"city": "Halmstad",
+"municipality": "Halmstads kommun",
+"town": null,
+"village": null
+},
+"56.8526,12.6904": {
+"city": null,
+"municipality": "Falkenbergs kommun",
+"town": null,
+"village": "Slöinge"
+},
+"56.8928,12.5010": {
+"city": null,
+"municipality": "Falkenbergs kommun",
+"town": "Falkenberg",
+"village": null
+},
+"56.9976,15.2817": {
+"city": null,
+"municipality": "Uppvidinge kommun",
+"town": null,
+"village": "Lenhovda"
+},
+"57.2755,12.1813": {
+"city": null,
+"municipality": "Varbergs kommun",
+"town": null,
+"village": null
+},
+"57.5350,13.3601": {
+"city": null,
+"municipality": "Tranemo kommun",
+"town": null,
+"village": "Limmared"
+},
+"57.5649,18.4627": {
+"city": "Visby",
+"municipality": "Gotlands kommun",
+"town": null,
+"village": null
+},
+"57.6655,12.8476": {
+"city": null,
+"municipality": "Borås kommun",
+"town": null,
+"village": "Bosnäs"
+},
+"57.6812,11.9062": {
+"city": "Göteborg",
+"municipality": "Göteborgs Stad",
+"town": null,
+"village": null
+},
+"57.7028,11.9623": {
+"city": "Göteborg",
+"municipality": "Göteborgs Stad",
+"town": null,
+"village": null
+},
+"57.7077,11.9507": {
+"city": "Göteborg",
+"municipality": "Göteborgs Stad",
+"town": null,
+"village": null
+},
+"57.7223,11.9449": {
+"city": "Göteborg",
+"municipality": "Göteborgs Stad",
+"town": null,
+"village": null
+},
+"57.7245,11.9777": {
+"city": "Göteborg",
+"municipality": "Göteborgs Stad",
+"town": null,
+"village": null
+},
+"57.7288,12.0018": {
+"city": "Göteborg",
+"municipality": "Göteborgs Stad",
+"town": null,
+"village": null
+},
+"57.7367,11.7944": {
+"city": null,
+"municipality": "Göteborgs Stad",
+"town": null,
+"village": "Västra Låssby"
+},
+"57.7384,11.9035": {
+"city": "Göteborg",
+"municipality": "Göteborgs Stad",
+"town": null,
+"village": null
+},
+"57.7480,12.1757": {
+"city": null,
+"municipality": "Partille kommun",
+"town": null,
+"village": "Jonsered"
+},
+"57.7492,11.9941": {
+"city": "Göteborg",
+"municipality": "Göteborgs Stad",
+"town": null,
+"village": null
+},
+"57.9873,11.5446": {
+"city": null,
+"municipality": "Tjörns kommun",
+"town": "Skärhamn",
+"village": null
+},
+"58.0745,11.8394": {
+"city": null,
+"municipality": "Stenungsunds kommun",
+"town": "Stenungsund",
+"village": null
+},
+"58.2850,12.2885": {
+"city": "Trollhättan",
+"municipality": "Trollhättans kommun",
+"town": null,
+"village": null
+},
+"58.3541,11.2269": {
+"city": null,
+"municipality": "Sotenäs kommun",
+"town": null,
+"village": "Smögen"
+},
+"58.4430,14.9312": {
+"city": null,
+"municipality": "Vadstena kommun",
+"town": "Vadstena",
+"village": null
+},
+"58.4962,13.7431": {
+"city": null,
+"municipality": "Skövde kommun",
+"town": null,
+"village": null
+},
+"58.5139,13.1318": {
+"city": null,
+"municipality": "Lidköpings kommun",
+"town": "Lidköping",
+"village": null
+},
+"58.6739,16.3628": {
+"city": null,
+"municipality": "Norrköpings kommun",
+"town": null,
+"village": "Krokek"
+},
+"59.0692,15.1289": {
+"city": null,
+"municipality": "Hallsbergs kommun",
+"town": "Hallsberg",
+"village": null
+},
+"59.0954,17.5798": {
+"city": null,
+"municipality": "Södertälje kommun",
+"town": null,
+"village": "Järna"
+},
+"59.2194,18.1534": {
+"city": null,
+"municipality": "Huddinge kommun",
+"town": null,
+"village": "Drevviksstrand"
+},
+"59.2196,18.1535": {
+"city": null,
+"municipality": "Huddinge kommun",
+"town": null,
+"village": "Drevviksstrand"
+},
+"59.2403,18.2103": {
+"city": null,
+"municipality": "Tyresö kommun",
+"town": null,
+"village": null
+},
+"59.2579,18.0760": {
+"city": "Stockholm",
+"municipality": "Stockholms kommun",
+"town": null,
+"village": null
+},
+"59.2674,15.1117": {
+"city": "Örebro",
+"municipality": "Örebro kommun",
+"town": null,
+"village": null
+},
+"59.2726,15.2124": {
+"city": "Örebro",
+"municipality": "Örebro kommun",
+"town": null,
+"village": null
+},
+"59.2726,18.4689": {
+"city": null,
+"municipality": "Värmdö kommun",
+"town": null,
+"village": "Återvall"
+},
+"59.2920,18.0775": {
+"city": "Stockholm",
+"municipality": "Stockholms kommun",
+"town": null,
+"village": null
+},
+"59.3126,17.2225": {
+"city": null,
+"municipality": "Strängnäs kommun",
+"town": null,
+"village": null
+},
+"59.3159,18.0723": {
+"city": "Stockholm",
+"municipality": "Stockholms kommun",
+"town": null,
+"village": null
+},
+"59.3168,18.0722": {
+"city": "Stockholm",
+"municipality": "Stockholms kommun",
+"town": null,
+"village": null
+},
+"59.3169,18.0628": {
+"city": "Stockholm",
+"municipality": "Stockholms kommun",
+"town": null,
+"village": null
+},
+"59.3286,18.0467": {
+"city": "Stockholm",
+"municipality": "Stockholms kommun",
+"town": null,
+"village": null
+},
+"59.3337,18.0377": {
+"city": "Stockholm",
+"municipality": "Stockholms kommun",
+"town": null,
+"village": null
+},
+"59.3369,18.0737": {
+"city": "Stockholm",
+"municipality": "Stockholms kommun",
+"town": null,
+"village": null
+},
+"59.3370,18.0258": {
+"city": "Stockholm",
+"municipality": "Stockholms kommun",
+"town": null,
+"village": null
+},
+"59.3391,18.2491": {
+"city": null,
+"municipality": "Nacka kommun",
+"town": "Boo",
+"village": null
+},
+"59.3402,18.0685": {
+"city": "Stockholm",
+"municipality": "Stockholms kommun",
+"town": null,
+"village": null
+},
+"59.3409,18.1166": {
+"city": "Stockholm",
+"municipality": "Stockholms kommun",
+"town": null,
+"village": null
+},
+"59.3462,18.0351": {
+"city": "Stockholm",
+"municipality": "Stockholms kommun",
+"town": null,
+"village": null
+},
+"59.3555,18.2309": {
+"city": null,
+"municipality": "Lidingö kommun",
+"town": null,
+"village": null
+},
+"59.3574,17.2091": {
+"city": null,
+"municipality": "Strängnäs kommun",
+"town": null,
+"village": "Stallarholmen"
+},
+"59.3772,13.5055": {
+"city": "Karlstad",
+"municipality": "Karlstads kommun",
+"town": null,
+"village": null
+},
+"59.3981,18.4376": {
+"city": null,
+"municipality": "Vaxholms kommun",
+"town": null,
+"village": "Oskar-Fredriksborg"
+},
+"59.5625,17.5583": {
+"city": null,
+"municipality": "Håbo kommun",
+"town": "Bålsta",
+"village": null
+},
+"59.5646,17.5494": {
+"city": null,
+"municipality": "Håbo kommun",
+"town": "Bålsta",
+"village": null
+},
+"59.5654,18.0535": {
+"city": null,
+"municipality": "Vallentuna kommun",
+"town": "Vallentuna",
+"village": null
+},
+"59.5944,16.5090": {
+"city": "Västerås",
+"municipality": "Västerås kommun",
+"town": null,
+"village": null
+},
+"59.6139,16.6090": {
+"city": "Västerås",
+"municipality": "Västerås kommun",
+"town": null,
+"village": null
+},
+"59.6165,16.5572": {
+"city": "Västerås",
+"municipality": "Västerås kommun",
+"town": null,
+"village": null
+},
+"59.6976,17.7157": {
+"city": null,
+"municipality": "Knivsta kommun",
+"town": null,
+"village": "Vassunda"
+},
+"59.8543,17.6917": {
+"city": "Uppsala",
+"municipality": "Uppsala kommun",
+"town": null,
+"village": null
+},
+"59.8560,17.6583": {
+"city": "Uppsala",
+"municipality": "Uppsala kommun",
+"town": null,
+"village": null
+},
+"59.8561,17.6584": {
+"city": "Uppsala",
+"municipality": "Uppsala kommun",
+"town": null,
+"village": null
+},
+"59.9329,16.6097": {
+"city": null,
+"municipality": "Sala kommun",
+"town": "Sala",
+"village": null
+},
+"60.3466,15.7485": {
+"city": null,
+"municipality": "Säters kommun",
+"town": "Säter",
+"village": null
+},
+"62.3988,17.2543": {
+"city": "Sundsvall",
+"municipality": "Sundsvalls kommun",
+"town": null,
+"village": null
+},
+"62.9105,18.3045": {
+"city": "Nordingrå distrikt",
+"municipality": "Kramfors kommun",
+"town": null,
+"village": "Nordingrå"
+},
+"63.1677,17.2689": {
+"city": "Sollefteå distrikt",
+"municipality": "Sollefteå kommun",
+"town": "Sollefteå",
+"village": null
+},
+"63.1778,14.6359": {
+"city": "Östersund",
+"municipality": "Östersunds kommun",
+"town": null,
+"village": null
+},
+"63.4001,13.0782": {
+"city": null,
+"municipality": "Åre kommun",
+"town": null,
+"village": "Åre"
+},
+"63.8266,20.2583": {
+"city": "Umeå",
+"municipality": "Umeå kommun",
+"town": null,
+"village": null
+},
+"64.5961,18.6762": {
+"city": null,
+"municipality": "Lycksele kommun",
+"town": "Lycksele",
+"village": null
+}
+}

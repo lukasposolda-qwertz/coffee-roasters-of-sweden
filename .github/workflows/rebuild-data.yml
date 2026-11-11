@@ -31,13 +31,13 @@ jobs:
 
       - name: Commit and push if anything changed
         run: |
-          if git diff --quiet -- data/roasters.json; then
+          if git diff --quiet -- data/roasters.json data/places_cache.json; then
             echo "No changes."
             exit 0
           fi
           summary=$(python -c "import json; r=json.load(open('data/roasters.json',encoding='utf-8'))['roasters']; print(f'{len(r)} roasters')")
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/roasters.json
+          git add data/roasters.json data/places_cache.json
           git commit -m "Data: weekly OSM rebuild ($summary)"
           git push

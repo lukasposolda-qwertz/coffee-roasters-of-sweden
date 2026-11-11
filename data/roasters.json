@@ -1,6 +1,6 @@
 {
- "snapshot": "2026-11-09",
- "osm_base": "2026-11-09T13:33:06Z",
+ "snapshot": "2026-11-11",
+ "osm_base": "2026-11-11T14:25:34Z",
  "licence": "Data © OpenStreetMap contributors, ODbL 1.0 (https://www.openstreetmap.org/copyright)",
  "roasters": [
   {
@@ -15,9 +15,10 @@
    "specialty": true,
    "address": "Österlånggatan 42, 461 30 Trollhättan",
    "city": "Trollhättan",
-   "website": "https://www.12knotscoffee.com/",
+   "website": null,
    "instagram": "https://www.instagram.com/12knotscoffee",
-   "opening_hours": "Tu-Fr 08:30-17:00; Sa 10:00-18:00"
+   "opening_hours": "Tu-Fr 08:30-17:00; Sa 10:00-18:00",
+   "town": "Trollhättan"
   },
   {
    "id": "node/14357446097",
@@ -29,9 +30,10 @@
    "specialty": false,
    "address": "Ahlavägen 10, 312 35 Laholm",
    "city": "Laholm",
-   "website": "https://alarosteri.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/alarosteri/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Laholm"
   },
   {
    "id": "node/14357475544",
@@ -43,9 +45,10 @@
    "specialty": false,
    "address": "Lilleby Sörgård 2, 423 49 Torslanda",
    "city": "Torslanda",
-   "website": "https://askkaffe.se/",
+   "website": null,
    "instagram": null,
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Torslanda"
   },
   {
    "id": "node/14357474882",
@@ -57,9 +60,10 @@
    "specialty": false,
    "address": "Polhemsgatan 30, 392 39 Kalmar",
    "city": "Kalmar",
-   "website": "https://balckcoffee.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/balckcoffee/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Kalmar"
   },
   {
    "id": "node/14357475543",
@@ -71,9 +75,10 @@
    "specialty": false,
    "address": "Bessemergatan 4, 417 07 Göteborg",
    "city": "Göteborg",
-   "website": "https://bergstrands.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/bergstrandskafferosteri/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Göteborg"
   },
   {
    "id": "node/12872490955",
@@ -87,9 +92,10 @@
    "specialty": false,
    "address": "Biblioteksgatan 9, 83130 Östersund",
    "city": "Östersund",
-   "website": "https://biglakecoffee.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/biglakecoffee/",
-   "opening_hours": "Mo-We 11:00-17:00, Fr 11:00-17:00"
+   "opening_hours": "Mo-We 11:00-17:00, Fr 11:00-17:00",
+   "town": "Östersund"
   },
   {
    "id": "node/14357460758",
@@ -101,9 +107,10 @@
    "specialty": false,
    "address": "Slakterigatan 10, 721 32 Västerås",
    "city": "Västerås",
-   "website": "https://www.bjorklundskaffe.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/bjorklundskaffe/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Västerås"
   },
   {
    "id": "node/14357475542",
@@ -115,9 +122,10 @@
    "specialty": false,
    "address": "Doterödsvägen 25, 444 32 Stenungsund",
    "city": "Stenungsund",
-   "website": "https://blakkrosteri.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/blakkrosteri/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Stenungsund"
   },
   {
    "id": "node/14357476940",
@@ -129,9 +137,10 @@
    "specialty": false,
    "address": "Östra vägen 1, 375 32 Mörrum",
    "city": "Mörrum",
-   "website": "https://blekinge.coffee/",
+   "website": null,
    "instagram": "https://www.instagram.com/blekingecoffee/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Mörrum"
   },
   {
    "id": "node/14357446096",
@@ -143,9 +152,10 @@
    "specialty": false,
    "address": "Älsjövägen 4, 504 93 Borås",
    "city": "Borås",
-   "website": "https://boraskafferosteri.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/boraskafferosteri/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Borås"
   },
   {
    "id": "node/3061396731",
@@ -159,9 +169,10 @@
    "specialty": false,
    "address": "Storgatan 38, 92131 Lycksele",
    "city": "Lycksele",
-   "website": "https://budhaskafferosteri.se",
+   "website": null,
    "instagram": "https://www.instagram.com/budhaskafferosteri/",
-   "opening_hours": "Tu-Fr 11:00-17:00; Sa 11:00-15:00"
+   "opening_hours": "Tu-Fr 11:00-17:00; Sa 11:00-15:00",
+   "town": "Lycksele"
   },
   {
    "id": "node/14356709677",
@@ -175,9 +186,10 @@
    "specialty": true,
    "address": null,
    "city": null,
-   "website": "https://caferialto.se",
+   "website": null,
    "instagram": null,
-   "opening_hours": "Mo-Fr 07:00-14:30; Sa 11:00-15:00; Su off"
+   "opening_hours": "Mo-Fr 07:00-14:30; Sa 11:00-15:00; Su off",
+   "town": "Stockholm"
   },
   {
    "id": "node/14357476901",
@@ -189,9 +201,10 @@
    "specialty": false,
    "address": "Kämpingevägen 86, 231 93 Trelleborg",
    "city": "Trelleborg",
-   "website": "https://www.cafego.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/cafego.se/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Trelleborg"
   },
   {
    "id": "node/14357475541",
@@ -203,9 +216,10 @@
    "specialty": false,
    "address": "Snorregatan 11, 417 29 Göteborg",
    "city": "Göteborg",
-   "website": "https://coffeacirculor.com/",
+   "website": null,
    "instagram": "https://www.instagram.com/coffeacirculor/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Göteborg"
   },
   {
    "id": "node/9490028586",
@@ -219,9 +233,10 @@
    "specialty": false,
    "address": "Kungsgatan 46, 90326 Umeå",
    "city": "Umeå",
-   "website": "https://costasofsweden.com/",
+   "website": null,
    "instagram": "https://www.instagram.com/costasofsweden/",
-   "opening_hours": "Mo-Fr 11:00-16:00"
+   "opening_hours": "Mo-Fr 11:00-16:00",
+   "town": "Umeå"
   },
   {
    "id": "node/14357431373",
@@ -233,9 +248,10 @@
    "specialty": false,
    "address": "Lindbacka 403, 705 93 Örebro",
    "city": "Örebro",
-   "website": "https://www.cozocoffee.com/",
+   "website": null,
    "instagram": "https://www.instagram.com/cozocoffee/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Örebro"
   },
   {
    "id": "node/6002665961",
@@ -249,9 +265,10 @@
    "specialty": false,
    "address": "Magasinsgatan 17, 41118 Göteborg",
    "city": "Göteborg",
-   "website": "https://damatteo.se/pages/test",
+   "website": null,
    "instagram": "https://www.instagram.com/damatteo/",
-   "opening_hours": "Mo-We 07:30-18:00; Th-Fr 07:30-19:30; Sa 08:00-19:30; Su 09:00-18:00"
+   "opening_hours": "Mo-We 07:30-18:00; Th-Fr 07:30-19:30; Sa 08:00-19:30; Su 09:00-18:00",
+   "town": "Göteborg"
   },
   {
    "id": "node/2698629348",
@@ -265,9 +282,10 @@
    "specialty": true,
    "address": null,
    "city": null,
-   "website": "https://www.dropcoffee.com/",
+   "website": null,
    "instagram": "https://www.instagram.com/dropcoffeeroasters/",
-   "opening_hours": "Mo-Fr 08:00-18:00;Sa-Su 10:00-17:00"
+   "opening_hours": "Mo-Fr 08:00-18:00;Sa-Su 10:00-17:00",
+   "town": "Stockholm"
   },
   {
    "id": "node/14357452650",
@@ -279,9 +297,10 @@
    "specialty": false,
    "address": "Spjutvägen 3, 746 50 Bålsta",
    "city": "Bålsta",
-   "website": "https://www.fandangocoffee.com/",
+   "website": null,
    "instagram": "https://www.instagram.com/fandangocoffee/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Bålsta"
   },
   {
    "id": "node/14357446989",
@@ -295,9 +314,10 @@
    "specialty": false,
    "address": "Karlsfors gård 1, 540 17 Lerdala",
    "city": "Lerdala",
-   "website": "https://www.fikamoose.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/fikamoose/",
-   "opening_hours": "Fr-Su 11:00-15:00"
+   "opening_hours": "Fr-Su 11:00-15:00",
+   "town": "Lerdala"
   },
   {
    "id": "node/14357460757",
@@ -309,9 +329,10 @@
    "specialty": false,
    "address": "783 30 Säter",
    "city": "Säter",
-   "website": "https://gamlasnickeriet.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/gamla.snickeriet.kafferosteri/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Säter"
   },
   {
    "id": "node/7795425949",
@@ -325,9 +346,10 @@
    "specialty": false,
    "address": "Varholmsgatan 12, 414 74 Göteborg",
    "city": "Göteborg",
-   "website": "https://www.gringonordic.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/gringonordic/",
-   "opening_hours": "Mo-Fr 08:00-16:00"
+   "opening_hours": "Mo-Fr 08:00-16:00",
+   "town": "Göteborg"
   },
   {
    "id": "node/14357476941",
@@ -339,9 +361,10 @@
    "specialty": false,
    "address": "Barlingbo Stava 300, 621 78 Visby",
    "city": "Visby",
-   "website": "https://guterosteri.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/guterosteri/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Visby"
   },
   {
    "id": "node/14357430295",
@@ -353,9 +376,10 @@
    "specialty": false,
    "address": "Gåshaga Brygga 1, 181 66 Lidingö",
    "city": "Lidingö",
-   "website": "https://gashaga.com/",
+   "website": null,
    "instagram": "https://www.instagram.com/gashaga_kafferosteri/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Lidingö"
   },
   {
    "id": "node/14357460756",
@@ -367,9 +391,10 @@
    "specialty": false,
    "address": "Fältmätargatan 14, 721 33 Västerås",
    "city": "Västerås",
-   "website": "https://hallakafferosteri.com/",
+   "website": null,
    "instagram": "https://www.instagram.com/hallakafferosteri/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Västerås"
   },
   {
    "id": "node/9913356240",
@@ -383,9 +408,10 @@
    "specialty": false,
    "address": null,
    "city": null,
-   "website": "https://www.hogakusten.com/sv/hoga-kusten-kaffe-rosteri",
+   "website": null,
    "instagram": null,
-   "opening_hours": "Mo-Su 10:00-17:00"
+   "opening_hours": "Mo-Su 10:00-17:00",
+   "town": "Nordingrå"
   },
   {
    "id": "node/13339046836",
@@ -399,9 +425,10 @@
    "specialty": true,
    "address": null,
    "city": null,
-   "website": "https://hogakustenkafferosteri.se",
+   "website": null,
    "instagram": "https://www.instagram.com/hkkafferosteri/",
-   "opening_hours": "Tu-Fr 11:00-17:00; Sa 12:00-17:00; Jul,Aug off"
+   "opening_hours": "Tu-Fr 11:00-17:00; Sa 12:00-17:00; Jul,Aug off",
+   "town": "Stockholm"
   },
   {
    "id": "node/14357446095",
@@ -413,9 +440,10 @@
    "specialty": false,
    "address": "Karlsrovägen 66, 302 41 Halmstad",
    "city": "Halmstad",
-   "website": "https://imcoffee.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/iamcoffeeandchocolate/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Halmstad"
   },
   {
    "id": "node/14357430294",
@@ -427,9 +455,10 @@
    "specialty": false,
    "address": "Återvallsvägen 1A, 134 64 Ingarö",
    "city": "Ingarö",
-   "website": "https://www.ingarorosteri.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/ingarorosteri/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Ingarö"
   },
   {
    "id": "node/14357430293",
@@ -441,9 +470,10 @@
    "specialty": false,
    "address": "Lyftkransvägen 11, 142 50 Skogås",
    "city": "Skogås",
-   "website": "https://johanochnystrom.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/johanochnystrom/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Skogås"
   },
   {
    "id": "node/14078201793",
@@ -455,9 +485,10 @@
    "specialty": false,
    "address": "Fabriksstråket 38, 433 76 Jonsered",
    "city": "Jonsered",
-   "website": null,
+   "website": {},
    "instagram": null,
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Jonsered"
   },
   {
    "id": "node/14357430292",
@@ -469,9 +500,10 @@
    "specialty": false,
    "address": "Maskinvägen 5, 153 30 Järna",
    "city": "Järna",
-   "website": "https://www.jarnarosteri.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/jarnarosteri/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Järna"
   },
   {
    "id": "node/14357446094",
@@ -483,9 +515,10 @@
    "specialty": false,
    "address": "Blåklintsvägen 6, 312 31 Laholm",
    "city": "Laholm",
-   "website": "https://www.kbkafferosteri.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/kbkafferosteri/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Laholm"
   },
   {
    "id": "node/14357430291",
@@ -497,9 +530,10 @@
    "specialty": false,
    "address": "Murarvägen 2, 132 38 Saltsjö-Boo",
    "city": "Saltsjö-Boo",
-   "website": "https://www.karlbergskafferosteri.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/karlbergskafferosteri/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Saltsjö-Boo"
   },
   {
    "id": "node/14357430290",
@@ -513,9 +547,10 @@
    "specialty": false,
    "address": null,
    "city": null,
-   "website": "https://www.kaffemissionaren.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/kaffemissionaren/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Stockholm"
   },
   {
    "id": "node/14357431372",
@@ -527,9 +562,10 @@
    "specialty": false,
    "address": "Östra Promenaden 16, 694 31 Hallsberg",
    "city": "Hallsberg",
-   "website": "https://kaffero.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/kaffero_se/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Hallsberg"
   },
   {
    "id": "node/14357430289",
@@ -541,9 +577,10 @@
    "specialty": false,
    "address": "Radiovägen 28, 135 48 Tyresö",
    "city": "Tyresö",
-   "website": "https://kafferosterietkoppar.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/kafferosterietkoppar/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Tyresö"
   },
   {
    "id": "node/11893454287",
@@ -557,9 +594,10 @@
    "specialty": false,
    "address": "Lilla Waterloogatan 2, 415 02 Göteborg",
    "city": "Göteborg",
-   "website": "https://www.kafferaven.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/kafferaven/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Göteborg"
   },
   {
    "id": "node/14357468799",
@@ -571,9 +609,10 @@
    "specialty": false,
    "address": "Storgatan 55, 881 30 Sollefteå",
    "city": "Sollefteå",
-   "website": "https://kaffesmak.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/kaffe_smak/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Sollefteå"
   },
   {
    "id": "node/14357475540",
@@ -585,9 +624,10 @@
    "specialty": false,
    "address": "Nordvära 142, 432 65 Väröbacka",
    "city": "Väröbacka",
-   "website": "https://kaprifolet.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/kaprifolet/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Väröbacka"
   },
   {
    "id": "node/14357430288",
@@ -599,9 +639,10 @@
    "specialty": false,
    "address": null,
    "city": null,
-   "website": "https://karmacoffee.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/karmacoffee/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Stockholm"
   },
   {
    "id": "node/14017861150",
@@ -615,9 +656,10 @@
    "specialty": true,
    "address": null,
    "city": null,
-   "website": "https://kersh.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/kersh.se/",
-   "opening_hours": "Mo-Su 10:00-17:00"
+   "opening_hours": "Mo-Su 10:00-17:00",
+   "town": "Stockholm"
   },
   {
    "id": "node/14357430300",
@@ -631,9 +673,10 @@
    "specialty": false,
    "address": "Koppargatan 19, 271 45 Ystad",
    "city": "Ystad",
-   "website": "https://www.kompasskafferosteri.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/kompass_kafferosteri/",
-   "opening_hours": "Tu-Fr 11:00-16:00; Sa 11:00-15:00"
+   "opening_hours": "Tu-Fr 11:00-16:00; Sa 11:00-15:00",
+   "town": "Ystad"
   },
   {
    "id": "node/14357430299",
@@ -645,9 +688,10 @@
    "specialty": false,
    "address": "Cindersgatan 8, 252 25 Helsingborg",
    "city": "Helsingborg",
-   "website": "https://koppi.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/koppi_roasters/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Helsingborg"
   },
   {
    "id": "node/14357452649",
@@ -659,9 +703,10 @@
    "specialty": false,
    "address": "Pionjärvägen 11B, 645 61 Stallarholmen",
    "city": "Stallarholmen",
-   "website": "https://laclara-coffee.com/",
+   "website": null,
    "instagram": "https://www.instagram.com/laclara_coffee/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Stallarholmen"
   },
   {
    "id": "way/220245481",
@@ -675,9 +720,10 @@
    "specialty": false,
    "address": "Baltzarsgatan 24, 211 36 Malmö",
    "city": "Malmö",
-   "website": "http://www.lillakafferosteriet.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/lillakafferosteriet/",
-   "opening_hours": "Mo-Fr 08:00-18:00; Sa-Su 09:00-18:00"
+   "opening_hours": "Mo-Fr 08:00-18:00; Sa-Su 09:00-18:00",
+   "town": "Malmö"
   },
   {
    "id": "node/13844594359",
@@ -691,9 +737,10 @@
    "specialty": false,
    "address": "Järnvägsgatan 32, 216 14 Limhamn",
    "city": "Limhamn",
-   "website": "https://kafferosteri.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/limhamnskafferosteri/",
-   "opening_hours": "Mo-Fr 08:00-17:00; Sa 11:00-14:00"
+   "opening_hours": "Mo-Fr 08:00-17:00; Sa 11:00-14:00",
+   "town": "Malmö"
   },
   {
    "id": "way/1035041583",
@@ -707,9 +754,10 @@
    "specialty": false,
    "address": "Klostergatan 1L, 222 22 Lund",
    "city": "Lund",
-   "website": "https://lovecoffee.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/lovecoffeelund/",
-   "opening_hours": "Mo-Fr 08:00-18:00; Sa-Su 09:00-17:00"
+   "opening_hours": "Mo-Fr 08:00-18:00; Sa-Su 09:00-17:00",
+   "town": "Lund"
   },
   {
    "id": "node/7557292748",
@@ -723,9 +771,10 @@
    "specialty": false,
    "address": "Hauptvägen 21, 123 58 Farsta",
    "city": "Farsta",
-   "website": "https://www.lykkegardar.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/lykkecoffeefarms/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Stockholm"
   },
   {
    "id": "node/5313747301",
@@ -739,9 +788,10 @@
    "specialty": false,
    "address": "Tolagsgatan 2, 652 16 Karlstad",
    "city": "Karlstad",
-   "website": "https://www.lofbergs.se/lofbergs-rosteri-och-kaffebar/karlstad/",
+   "website": null,
    "instagram": "https://www.instagram.com/lofbergs/",
-   "opening_hours": "Mo-Fr 07:00-17:00; Sa 10:00-16:00"
+   "opening_hours": "Mo-Fr 07:00-17:00; Sa 10:00-16:00",
+   "town": "Karlstad"
   },
   {
    "id": "node/14357460755",
@@ -753,9 +803,10 @@
    "specialty": false,
    "address": "Varmvalsvägen 4B, 721 30 Västerås",
    "city": "Västerås",
-   "website": "https://joinmaggmma.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/maggmmabeans/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Västerås"
   },
   {
    "id": "node/8996481960",
@@ -769,9 +820,10 @@
    "specialty": false,
    "address": "Anders Carlssons Gata 30, 417 55 Göteborg",
    "city": "Göteborg",
-   "website": "https://www.morgoncoffeeroasters.com/",
+   "website": null,
    "instagram": "https://www.instagram.com/morgoncoffeeroasters/",
-   "opening_hours": "Mo-Fr 09:00-16:00"
+   "opening_hours": "Mo-Fr 09:00-16:00",
+   "town": "Göteborg"
   },
   {
    "id": "node/8783633450",
@@ -785,9 +837,10 @@
    "specialty": false,
    "address": "Fortvägen 1-7, 185 41 Vaxholm",
    "city": "Vaxholm",
-   "website": "https://muttleyandjacks.se",
+   "website": null,
    "instagram": "https://www.instagram.com/muttley.and.jack/",
-   "opening_hours": "no"
+   "opening_hours": "no",
+   "town": "Vaxholm"
   },
   {
    "id": "node/14357430287",
@@ -799,9 +852,10 @@
    "specialty": false,
    "address": "Fredenvägen 11, 186 92 Vallentuna",
    "city": "Vallentuna",
-   "website": "https://ostindia.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/ostindiarosteriet/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Vallentuna"
   },
   {
    "id": "node/12688499728",
@@ -815,9 +869,10 @@
    "specialty": true,
    "address": null,
    "city": null,
-   "website": "https://cafepascal.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/cafepascal/",
-   "opening_hours": "Mo-Fr 07:00-18:00; Sa,Su 08:00-17:00"
+   "opening_hours": "Mo-Fr 07:00-18:00; Sa,Su 08:00-17:00",
+   "town": "Stockholm"
   },
   {
    "id": "node/11171413036",
@@ -831,9 +886,10 @@
    "specialty": true,
    "address": null,
    "city": null,
-   "website": "https://www.cafepascal.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/cafepascal/",
-   "opening_hours": "Mo-Fr 07:30-18:00; Sa 09:00-18:00; Su 09:00-17:00"
+   "opening_hours": "Mo-Fr 07:30-18:00; Sa 09:00-18:00; Su 09:00-17:00",
+   "town": "Stockholm"
   },
   {
    "id": "node/14357431371",
@@ -845,9 +901,10 @@
    "specialty": false,
    "address": "Drottninggatan 7, 702 10 Örebro",
    "city": "Örebro",
-   "website": "https://pennybridgeroasters.com/",
+   "website": null,
    "instagram": "https://www.instagram.com/pennybridgeroasters/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Örebro"
   },
   {
    "id": "node/13668666265",
@@ -862,9 +919,10 @@
    "specialty": true,
    "address": "Södra Hamnen 5, 471 32 Skärhamn",
    "city": "Skärhamn",
-   "website": "https://www.quocoffee.com/info-pa-svenska",
+   "website": null,
    "instagram": "https://www.instagram.com/quo.coffee/",
-   "opening_hours": "Tu-Fr 08:00-16:00; Sa 11:00-14:00 \"some Saturdays\""
+   "opening_hours": "Tu-Fr 08:00-16:00; Sa 11:00-14:00 \"some Saturdays\"",
+   "town": "Skärhamn"
   },
   {
    "id": "node/14357452648",
@@ -876,9 +934,10 @@
    "specialty": false,
    "address": "Kvarsebovägen 159, 618 93 Kolmården",
    "city": "Kolmården",
-   "website": "https://www.qvarsebokaffe.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/qvarsebokaffe/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Kolmården"
   },
   {
    "id": "node/14357475539",
@@ -890,9 +949,10 @@
    "specialty": false,
    "address": "Gustaf Dalénsgatan 14, 417 23 Göteborg",
    "city": "Göteborg",
-   "website": "https://ritucoffee.com/",
+   "website": null,
    "instagram": "https://www.instagram.com/ritucoffee/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Göteborg"
   },
   {
    "id": "node/11813276401",
@@ -906,9 +966,10 @@
    "specialty": false,
    "address": "Huvudstad 201, 592 94 Vadstena",
    "city": "Vadstena",
-   "website": "https://rosterietvadstena.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/rosteriet_vadstena/",
-   "opening_hours": "Th-Sa 11:00-17:00; Su 11:00-16:00"
+   "opening_hours": "Th-Sa 11:00-17:00; Su 11:00-16:00",
+   "town": "Vadstena"
   },
   {
    "id": "node/14357446988",
@@ -920,9 +981,10 @@
    "specialty": false,
    "address": "Skogsvaktarevägen 3, 531 53 Lidköping",
    "city": "Lidköping",
-   "website": "https://rosthuset.com/",
+   "website": null,
    "instagram": "https://www.instagram.com/rosthuset/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Lidköping"
   },
   {
    "id": "node/14357475538",
@@ -934,9 +996,10 @@
    "specialty": false,
    "address": "Importgatan 20, 422 46 Hisings Backa",
    "city": "Hisings Backa",
-   "website": "https://rutasoka.com/",
+   "website": null,
    "instagram": "https://www.instagram.com/rutasoka_coffee/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Göteborg"
   },
   {
    "id": "node/14357446093",
@@ -948,9 +1011,10 @@
    "specialty": false,
    "address": "Åsgatan 15, 514 41 Limmared",
    "city": "Limmared",
-   "website": "https://samsonorganiccoffee.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/samsonorganiccoffee/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Limmared"
   },
   {
    "id": "node/14357430298",
@@ -962,9 +1026,10 @@
    "specialty": false,
    "address": "Sandby 1675, 247 91 Södra Sandby",
    "city": "Södra Sandby",
-   "website": "https://www.sandbykafferosteri.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/sandbykafferosteri/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Södra Sandby"
   },
   {
    "id": "node/14357430286",
@@ -976,9 +1041,10 @@
    "specialty": false,
    "address": "Vassunda-Örby 41, 741 91 Knivsta",
    "city": "Knivsta",
-   "website": "https://www.sigtunakafferosteri.com/",
+   "website": null,
    "instagram": "https://www.instagram.com/sigtuna_kafferosteri/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Knivsta"
   },
   {
    "id": "way/641152688",
@@ -992,9 +1058,10 @@
    "specialty": false,
    "address": "Stationsgatan 7, 311 68 Slöinge",
    "city": "Slöinge",
-   "website": "http://www.sloingekafferosteri.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/sloinge_kafferosteri/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Slöinge"
   },
   {
    "id": "node/14357475537",
@@ -1006,9 +1073,10 @@
    "specialty": false,
    "address": "Fiskhamnsgatan 30, 456 51 Smögen",
    "city": "Smögen",
-   "website": "https://smogenskafferosteri.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/smogenskafferosteri/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Smögen"
   },
   {
    "id": "node/9764097571",
@@ -1020,9 +1088,10 @@
    "specialty": false,
    "address": "Mejselgatan 3, 211 20 Malmö",
    "city": "Malmö",
-   "website": "https://www.solde.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/soldekaffe/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Malmö"
   },
   {
    "id": "node/14357452647",
@@ -1034,9 +1103,10 @@
    "specialty": false,
    "address": "Vasaborg 1, 647 91 Mariefred",
    "city": "Mariefred",
-   "website": "https://solkantkafferosteri.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/solkantkafferosteri/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Mariefred"
   },
   {
    "id": "node/14357430285",
@@ -1048,9 +1118,10 @@
    "specialty": false,
    "address": "Frihamnsgatan 28, 115 56 Stockholm",
    "city": "Stockholm",
-   "website": "https://www.standoutcoffee.com/",
+   "website": null,
    "instagram": "https://www.instagram.com/standoutcoffee/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Stockholm"
   },
   {
    "id": "node/9380291438",
@@ -1064,9 +1135,10 @@
    "specialty": true,
    "address": "Hallvägen 9, 121 62 Johanneshov",
    "city": "Johanneshov",
-   "website": "https://www.stockholmroast.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/stockholmroast/",
-   "opening_hours": "Mo-Fr 09:00-15:00"
+   "opening_hours": "Mo-Fr 09:00-15:00",
+   "town": "Stockholm"
   },
   {
    "id": "node/14357468798",
@@ -1078,9 +1150,10 @@
    "specialty": false,
    "address": "Tegelvägen 9, 853 50 Sundsvall",
    "city": "Sundsvall",
-   "website": "https://getstoked.coffee/",
+   "website": null,
    "instagram": "https://www.instagram.com/stokedcoffeeroasters/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Sundsvall"
   },
   {
    "id": "node/14357452653",
@@ -1092,9 +1165,10 @@
    "specialty": false,
    "address": "Sylveniusgatan 2, 754 50 Uppsala",
    "city": "Uppsala",
-   "website": "https://svanfeldtscoffee.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/svanfeldtscoffee/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Uppsala"
   },
   {
    "id": "node/14357446092",
@@ -1106,9 +1180,10 @@
    "specialty": false,
    "address": "Peter Åbergs Väg 1, 311 42 Falkenberg",
    "city": "Falkenberg",
-   "website": "https://swerl.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/swerl_coffee_roasters/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Falkenberg"
   },
   {
    "id": "way/401788176",
@@ -1122,9 +1197,10 @@
    "specialty": false,
    "address": "Romarliden 2, 36441 Lenhovda",
    "city": "Lenhovda",
-   "website": "https://tadah.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/tadah.se/",
-   "opening_hours": "Th-Sa 11:00-17:00"
+   "opening_hours": "Th-Sa 11:00-17:00",
+   "town": "Lenhovda"
   },
   {
    "id": "node/14357452652",
@@ -1136,9 +1212,10 @@
    "specialty": false,
    "address": "Bergsbrunnagatan 1, 753 23 Uppsala",
    "city": "Uppsala",
-   "website": "https://www.thebrokercoffee.com/",
+   "website": null,
    "instagram": "https://www.instagram.com/thebrokercoffee/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Uppsala"
   },
   {
    "id": "node/14357460754",
@@ -1150,9 +1227,10 @@
    "specialty": false,
    "address": "Verkstadsgatan 22, 733 38 Sala",
    "city": "Sala",
-   "website": "https://www.tornlindskafferosteri.com/",
+   "website": null,
    "instagram": "https://www.instagram.com/tornlindskafferosteri/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Sala"
   },
   {
    "id": "node/14357452651",
@@ -1164,9 +1242,10 @@
    "specialty": false,
    "address": "Bergsbrunnagatan 1, 753 23 Uppsala",
    "city": "Uppsala",
-   "website": "https://uppsalakafferosteri.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/uppsalakafferosteri/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Uppsala"
   },
   {
    "id": "node/11248431737",
@@ -1180,9 +1259,10 @@
    "specialty": true,
    "address": null,
    "city": null,
-   "website": "https://volcacoffee.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/volca_coffee/",
-   "opening_hours": "Mo-Fr 10:30-17:00; Sa-Su 10:00-17:30"
+   "opening_hours": "Mo-Fr 10:30-17:00; Sa-Su 10:00-17:30",
+   "town": "Stockholm"
   },
   {
    "id": "node/14357430297",
@@ -1194,9 +1274,10 @@
    "specialty": false,
    "address": "Skälhögsvägen 177, 271 95 Ystad",
    "city": "Ystad",
-   "website": "https://gardshotellet.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/gardshotellet/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Ystad"
   },
   {
    "id": "node/14357452646",
@@ -1208,9 +1289,10 @@
    "specialty": false,
    "address": "Mjödvägen 6, 746 50 Bålsta",
    "city": "Bålsta",
-   "website": "https://cockatoocoffee.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/cockatoo_coffee/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Bålsta"
   },
   {
    "id": "node/14357430284",
@@ -1222,9 +1304,10 @@
    "specialty": false,
    "address": "Lyftkransvägen 7A, 142 50 Skogås",
    "city": "Skogås",
-   "website": "https://www.ziiipcoffee.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/ziiipcoffee/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Skogås"
   },
   {
    "id": "node/6343703454",
@@ -1238,9 +1321,10 @@
    "specialty": false,
    "address": "Årevägen 89, 837 52 Åre",
    "city": "Åre",
-   "website": "https://arekafferosteri.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/arekafferosteri/",
-   "opening_hours": "Mo-Su 11:00-17:00"
+   "opening_hours": "Mo-Su 11:00-17:00",
+   "town": "Åre"
   },
   {
    "id": "node/14357430296",
@@ -1252,9 +1336,10 @@
    "specialty": false,
    "address": "Gamla Landsvägen 44C, 235 99 Vellinge",
    "city": "Vellinge",
-   "website": "https://ostragreviekafferosteri.se/",
+   "website": null,
    "instagram": "https://www.instagram.com/ostragreviekafferosteri/",
-   "opening_hours": null
+   "opening_hours": null,
+   "town": "Vellinge"
   }
  ]
 }

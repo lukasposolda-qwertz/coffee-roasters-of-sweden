@@ -14,6 +14,7 @@ import datetime, json, pathlib, sys, time, urllib.parse, urllib.request
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / "data" / "roasters.json"
+PLACES = ROOT / "data" / "places_cache.json"  # coordinate -> town, so weekly runs only look up new points
 SERVERS = [
     "https://overpass-api.de/api/interpreter",
     "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
@@ -54,7 +55,18 @@ def address(t):
 def url(v):
     v = (v or "").strip().split(";")[0].strip()
     if not v:
-        return None
+        return {}
+
+
+def town(r, place):
+    """The town a visitor would name: the city the point lies in (Stockholm for Farsta, Malmö for Limhamn),
+    else the postal town from OSM, else Nominatim's town, village or municipality.
+    Needed because many points lack addr:city (in Stockholm the address sits on the building)."""
+    name = place.get("city") or r["city"] or place.get("town") or place.get("village") or place.get("municipality")
+    for suffix in (" kommun", " distrikt", " stad", " Stad"):
+        if name and name.endswith(suffix):
+            name = name[: -len(suffix)]
+    return name
     return v if v.startswith("http") else "https://" + v
 
 
@@ -65,6 +77,26 @@ def instagram(t):
     if h.startswith("http"):
         return h.split("?")[0]
     return "https://www.instagram.com/" + h.lstrip("@").strip("/") + "/"
+
+
+def place_for(lat, lon, cache):
+    """Address parts for a point from Nominatim reverse geocoding (1 request per second, cached)."""
+    key = f"{lat:.4f},{lon:.4f}"
+    if key in cache:
+        return cache[key]
+    url = f"https://nominatim.openstreetmap.org/reverse?lat={lat}&lon={lon}&format=jsonv2&zoom=14&addressdetails=1&accept-language=sv"
+    for _ in range(3):
+        try:
+            time.sleep(1.1)
+            req = urllib.request.Request(url, headers={"User-Agent": "coffee-roasters-of-sweden/1.0"})
+            with urllib.request.urlopen(req, timeout=30) as r:
+                a = json.load(r).get("address", {})
+            cache[key] = {k: a.get(k) for k in ("city", "town", "village", "municipality")}
+            return cache[key]
+        except Exception as e:
+            print("Nominatim failed", key, e)
+            time.sleep(5)
+    return None
 
 
 def normalize(e):
@@ -93,6 +125,11 @@ def normalize(e):
 def main():
     data = fetch()
     items = sorted((normalize(e) for e in data["elements"]), key=lambda r: r["name"].lower())
+    cache = json.loads(PLACES.read_text(encoding="utf-8")) if PLACES.exists() else {}
+    for r in items:
+        r["town"] = town(r, place_for(r["lat"], r["lon"], cache))
+    PLACES.parent.mkdir(parents=True, exist_ok=True)
+    PLACES.write_text(json.dumps(cache, ensure_ascii=False, indent=0, sort_keys=True), encoding="utf-8")
     if OUT.exists() and "--force" not in sys.argv:
         prev = len(json.loads(OUT.read_text(encoding="utf-8"))["roasters"])
         if len(items) < prev * MIN_RATIO:

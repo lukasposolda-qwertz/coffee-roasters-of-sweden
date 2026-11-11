@@ -77,20 +77,31 @@ function ohTable(oh) {
 }
 
 /* ---------- state ---------- */
-let DATA = [], me = null, activeId = null, popup = null, tilesOk = false, map;
-const filt = { q: "", hours: false, open: false, groups: { roaster: true, micro: true } };
-const norm = s => (s || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+let DATA = [], me = null, activeId = null, popup = null, tilesOk = false, map, view = "list";
+const filt = { q: "", hours: false, open: false, town: null };
+const norm = s => (s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
 function km(a, b) {
   const R = 6371, r = Math.PI / 180, dl = (b.lat - a.lat) * r, dn = (b.lon - a.lon) * r;
   const x = Math.sin(dl / 2) ** 2 + Math.cos(a.lat * r) * Math.cos(b.lat * r) * Math.sin(dn / 2) ** 2;
   return 2 * R * Math.asin(Math.sqrt(x));
 }
-function visible() {
+// everything except the town filter (the towns view ranks towns within the other filters)
+function base() {
   const q = norm(filt.q);
-  return DATA.filter(r => filt.groups[r.group]
-    && (!q || norm(r.name + " " + (r.city || "") + " " + (r.address || "")).includes(q))
+  return DATA.filter(r => (!q || norm(r.name + " " + (r.city || "") + " " + (r.town || "") + " " + (r.address || "")).includes(q))
     && (!filt.hours || r.oh)
     && (!filt.open || stateNow(r.oh)?.open));
+}
+const visible = () => base().filter(r => !filt.town || r.townKey === filt.town);
+function towns(rows) {
+  const by = new Map();
+  for (const r of rows) {
+    if (!r.townKey) continue;
+    const t = by.get(r.townKey) || { key: r.townKey, name: r.town || r.city, n: 0, open: 0, hours: 0 };
+    t.n++; t.open += stateNow(r.oh)?.open ? 1 : 0; t.hours += r.oh ? 1 : 0;
+    by.set(r.townKey, t);
+  }
+  return [...by.values()].sort((a, b) => b.n - a.n || a.name.localeCompare(b.name, "sv"));
 }
 
 /* ---------- basemap ---------- */
@@ -195,28 +206,70 @@ function render() {
   $("count").textContent = fmt(n);
   $("countLabel").textContent = (n === 1 ? "roaster" : "roasters") + (sort === "view" ? " in view" : "");
   $("openCount").textContent = fmt(rows.filter(r => stateNow(r.oh)?.open).length);
-  $("townCount").textContent = fmt(new Set(rows.map(r => norm(r.city)).filter(Boolean)).size);
+  $("townCount").textContent = fmt(new Set(rows.map(r => r.townKey).filter(Boolean)).size);
   $("list").innerHTML = n ? rows.map(r => {
     const st = stateNow(r.oh);
     const side = sort === "near" && me ? `${r._d < 10 ? r._d.toFixed(1) : Math.round(r._d)} km` : st?.open ? `until ${hhmm(st.until)}` : "";
     return `<li data-id="${esc(r.id)}" tabindex="0"><span class="dot ${r.group === "micro" ? "s2" : "s1"}"></span>
-      <span><span class="nm">${esc(r.name)}</span><span class="meta">${esc(r.city || r.address || "")}</span></span>
+      <span><span class="nm">${esc(r.name)}</span><span class="meta">${esc(r.city && r.town && norm(r.city) !== norm(r.town) ? `${r.city}, ${r.town}` : r.town || r.city || "")}</span></span>
       <span class="side${st?.open && !(sort === "near" && me) ? " open" : ""}">${side}</span></li>`;
   }).join("") : `<li class="empty">No roaster matches these filters.</li>`;
   markActive();
-  const cnt = (f) => fmt(DATA.filter(f).length);
-  $("g-roaster").querySelector(".n").textContent = cnt(r => r.group === "roaster");
-  $("g-micro").querySelector(".n").textContent = cnt(r => r.group === "micro");
+  renderTowns();
+  const cnt = f => fmt(DATA.filter(f).length);
   $("fHours").querySelector(".n").textContent = cnt(r => r.oh);
   $("fOpen").querySelector(".n").textContent = cnt(r => stateNow(r.oh)?.open);
+  $("townChip").hidden = !filt.town;
+  if (filt.town) $("townChip").textContent = `${DATA.find(r => r.townKey === filt.town)?.town} ×`;
+}
+function renderTowns() {
+  const rows = base(), T = towns(rows);
+  const max = T[0]?.n || 1, single = T.filter(t => t.n === 1).length, untagged = rows.filter(r => !r.townKey).length;
+  let h = "";
+  if (T.length) {
+    const top = T.filter(t => t.n === T[0].n).map(t => esc(t.name));
+    h += `<li class="summary"><b>${top.join(" and ")}</b> ${top.length > 1 ? "share" : "has"} the most roasters (${T[0].n}). `
+      + `${fmt(T.length)} towns in all, and ${fmt(single)} of them have just one.`
+      + (untagged ? ` ${fmt(untagged)} ${untagged === 1 ? "place has" : "places have"} no town in OpenStreetMap.` : "") + `</li>`;
+  }
+  h += T.map(t => `<li data-town="${esc(t.key)}" tabindex="0" class="${t.key === filt.town ? "sel" : ""}">
+      <span class="tn">${esc(t.name)}</span>
+      <span class="bar" aria-hidden="true"><span style="width:${Math.max(4, Math.round(t.n / max * 100))}%"></span></span>
+      <span class="sub">${t.open ? `${t.open} open now · ` : ""}${t.hours} of ${t.n} with hours</span>
+      <span class="cnt">${t.n}</span></li>`).join("") || `<li class="summary">No town matches these filters.</li>`;
+  $("towns").innerHTML = h;
+}
+function setView(v) {
+  view = v;
+  $("vList").setAttribute("aria-selected", String(v === "list"));
+  $("vTowns").setAttribute("aria-selected", String(v === "towns"));
+  $("list").hidden = v !== "list";
+  $("towns").hidden = v !== "towns";
+  $("sort").closest(".sortrow").hidden = v !== "list";
+  $("panel").classList.remove("collapsed");
+}
+function pickTown(key) {
+  if (filt.town === key) key = null;
+  filt.town = key;
+  render();
+  setView("list");
+  const pts = visible();
+  if (key && pts.length) {
+    if (pts.length === 1) map.flyTo({ center: [pts[0].lon, pts[0].lat], zoom: tilesOk ? 13 : 9, padding: paddingFor() });
+    else {
+      const b = new maplibregl.LngLatBounds();
+      pts.forEach(r => b.extend([r.lon, r.lat]));
+      map.fitBounds(b, { padding: paddingFor(), maxZoom: tilesOk ? 14 : 9 });
+    }
+  }
 }
 
 /* ---------- controls ---------- */
 function press(el, on) { el.setAttribute("aria-pressed", String(on)); }
 function wire() {
-  for (const g of ["roaster", "micro"]) $("g-" + g).onclick = () => { filt.groups[g] = !filt.groups[g]; press($("g-" + g), filt.groups[g]); render(); };
   $("fHours").onclick = () => { filt.hours = !filt.hours; press($("fHours"), filt.hours); render(); };
   $("fOpen").onclick = () => { filt.open = !filt.open; press($("fOpen"), filt.open); render(); };
+  $("townChip").onclick = () => pickTown(null);
   $("q").addEventListener("input", e => { filt.q = e.target.value; render(); });
   $("q").addEventListener("focus", () => $("panel").classList.remove("collapsed"));
   $("sort").addEventListener("change", e => {
@@ -226,18 +279,23 @@ function wire() {
     }
     render();
   });
+  $("vList").onclick = () => setView("list");
+  $("vTowns").onclick = () => setView("towns");
+  $("townStat").onclick = () => setView("towns");
   const pick = e => { const li = e.target.closest("li[data-id]"); if (li) openPopup(DATA.find(r => r.id === li.dataset.id)); };
   $("list").addEventListener("click", pick);
   $("list").addEventListener("keydown", e => { if (e.key === "Enter") pick(e); });
+  const town = e => { const li = e.target.closest("li[data-town]"); if (li) pickTown(li.dataset.town); };
+  $("towns").addEventListener("click", town);
+  $("towns").addEventListener("keydown", e => { if (e.key === "Enter") town(e); });
   $("sheetHandle").onclick = () => $("panel").classList.toggle("collapsed");
   const about = open => {
     $("panel").classList.toggle("about-open", open);
     $("about").hidden = !open;
     $("aboutBtn").setAttribute("aria-expanded", String(open));
-    $("aboutBtn").textContent = open ? "Close" : "About";
     if (open) { $("panel").classList.remove("collapsed"); $("about").scrollTop = 0; }
   };
-  $("aboutBtn").onclick = () => about($("about").hidden);
+  $("aboutBtn").onclick = () => about(true);
   $("aboutBack").onclick = () => about(false);
   if (isPhone()) $("panel").classList.add("collapsed");
 }
@@ -295,7 +353,7 @@ async function start() {
     tilesReachable(),
   ]);
   tilesOk = ok;
-  DATA = data.roasters.map(r => ({ ...r, oh: parseOH(r.opening_hours) }));
+  DATA = data.roasters.map(r => ({ ...r, oh: parseOH(r.opening_hours), townKey: norm(r.town || r.city) || null }));
   map = new maplibregl.Map({
     container: "map", style: tilesOk ? TILE_STYLE : fallbackStyle(sweden),
     bounds: [[10.9, 55.2], [24.2, 69.1]], fitBoundsOptions: { padding: paddingFor() },

@@ -18,31 +18,33 @@
   <aside id="panel">
     <button id="sheetHandle" type="button" aria-label="Show or hide the list"></button>
     <header class="head">
-      <div class="topline">
-        <h1>Coffee roasters <em class="key">of Sweden</em></h1>
-        <button type="button" class="linkbtn" id="aboutBtn" aria-expanded="false" aria-controls="about">About</button>
-      </div>
+      <h1>Coffee roasters <em class="key">of Sweden</em></h1>
       <p class="lead">Find a roastery near you and see who is open right now.</p>
       <div class="stats" aria-live="polite">
         <div><span class="n" id="count">–</span><span class="label" id="countLabel">roasters</span></div>
         <div><span class="n open" id="openCount">–</span><span class="label">open now</span></div>
-        <div><span class="n" id="townCount">–</span><span class="label">towns</span></div>
+        <button type="button" id="townStat" aria-label="Show towns"><span class="n" id="townCount">–</span><span class="label">towns →</span></button>
       </div>
     </header>
     <div class="controls">
       <input id="q" type="search" placeholder="Search name or town" autocomplete="off" aria-label="Search roasters">
       <div class="tags" role="group" aria-label="Filters">
-        <button type="button" class="tag" id="g-roaster" aria-pressed="true"><span class="dot s1"></span>Roasteries <span class="n"></span></button>
-        <button type="button" class="tag" id="g-micro" aria-pressed="true"><span class="dot s2"></span>Roasting cafés <span class="n"></span></button>
         <button type="button" class="tag" id="fOpen" aria-pressed="false">Open now <span class="n"></span></button>
         <button type="button" class="tag" id="fHours" aria-pressed="false">With hours <span class="n"></span></button>
+        <button type="button" class="tag" id="townChip" aria-pressed="true" hidden></button>
+      </div>
+      <div class="views" role="tablist" aria-label="View">
+        <button type="button" role="tab" id="vList" aria-selected="true" aria-controls="list">Roasters</button>
+        <button type="button" role="tab" id="vTowns" aria-selected="false" aria-controls="towns">Towns</button>
       </div>
       <div class="sortrow">
         <label class="label" for="sort">Sort</label>
         <select id="sort"><option value="name">Name A–Z</option><option value="near">Nearest to me</option><option value="view">In map view</option></select>
       </div>
     </div>
-    <ul id="list"></ul>
+    <ul id="list" role="tabpanel"></ul>
+    <ol id="towns" role="tabpanel" hidden></ol>
+    <div class="panelfoot"><button type="button" class="linkbtn" id="aboutBtn" aria-expanded="false" aria-controls="about">About this map</button></div>
     <div id="about" class="about" hidden>
       <section>
         <span class="label">What is on the map</span>
