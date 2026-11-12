@@ -17,8 +17,112 @@ const css = v => { // resolves tokens that point at other tokens, e.g. --map-lan
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const safeUrl = u => /^https?:\/\//i.test(u || "") ? u : null;
 const prettyHost = u => u.replace(/^https?:\/\/(www\.)?/, "").replace(/\/.*$/, "");
-const fmt = n => n.toLocaleString("en-GB");
+const fmt = n => n.toLocaleString(LANG === "sv" ? "sv-SE" : "en-GB");
 const isPhone = () => innerWidth <= 760;
+
+/* ---------- language: Swedish first, English second ---------- */
+const I18N = {
+  sv: {
+    docTitle: "Kafferosterier i Sverige", langBtn: "English", langName: "Byt till engelska",
+    sheet: "Visa eller dölj listan", title: 'Kafferosterier <em class="key">i Sverige</em>',
+    lead: "Hitta ett rosteri nära dig och se vilka som har öppet just nu.",
+    roaster: "rosteri", roasters: "rosterier", inView: " i kartvyn", openNow: "öppet nu", townsArrow: "orter →", showTowns: "Visa orter",
+    search: "Sök namn eller ort", searchAria: "Sök rosterier", filters: "Filter", fOpen: "Öppet nu", fHours: "Med öppettider",
+    view: "Vy", vList: "Rosterier", vTowns: "Orter", sort: "Sortera", sortName: "Namn A–Ö", sortNear: "Närmast mig", sortView: "I kartvyn",
+    aboutBtn: "Om kartan", back: "Tillbaka till listan", mapAria: "Karta över kafferosterier i Sverige",
+    aWhatH: "Vad kartan visar",
+    aWhat: "Platser i Sverige där kaffe rostas: rosterier och kaféer som rostar sina egna bönor. Några punkter är ett rosteris kafé eller butik snarare än själva rosteriet.",
+    legRoastery: "Rosteri", legCafe: "Kafé som rostar på plats",
+    aHoursH: "Öppettider",
+    aHours: "Öppettiderna kommer från OpenStreetMap och många rosterier saknar dem. ”Öppet nu” utgår från klockan i din enhet och känner inte till helgdagar, så kolla rosteriets egen sajt innan en längre resa.",
+    aMissingH: "Saknas något eller är fel?",
+    aMissing: 'Kartan visar det som finns i OpenStreetMap. Lägg till ett rosteri eller rätta uppgifterna där, så syns det här efter nästa veckovisa uppdatering. <a href="https://www.openstreetmap.org/" target="_blank" rel="noopener">Öppna OpenStreetMap →</a>',
+    aDataH: "Data",
+    aData: "Alla objekt i Sverige taggade <code>craft=coffee_roaster</code> eller <code>microroasting=yes</code>. E-postadresser och telefonnummer är medvetet utelämnade.",
+    tilesNote: "Kartbilderna kan inte laddas här, så bakgrunden är en enkel kontur av Sverige.",
+    aCreditsH: "Tack till",
+    aCredits: 'Data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMaps bidragsgivare</a>, ODbL. Kartbilder <a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a>, © OpenMapTiles. Sveriges kontur från Natural Earth. Byggd med MapLibre GL JS.',
+    aBy: 'Ett privat projekt av Lukas Posolda. <a href="https://github.com/lukasposolda-qwertz/coffee-roasters-of-sweden" target="_blank" rel="noopener">Källkod på GitHub →</a>',
+    snap: (d, n) => `OpenStreetMap ${d} · ${n} platser`,
+    empty: "Inget rosteri matchar filtren.", until: t => `till ${t}`,
+    kindRoaster: "Rosteri", kindMicro: "Rostande kafé", kindCafe: "kafé", kindShop: "butik", kindSpecialty: "specialkaffe",
+    openUntil: t => `ÖPPET NU · TILL ${t}`, openNoUntil: "ÖPPET NU", closedOpens: t => `STÄNGT NU · ÖPPNAR ${t}`, closedNow: "STÄNGT NU",
+    asTagged: "Som taggat:", hoursAsTagged: "Öppettider som taggat:", osmLink: "Visa eller redigera i OpenStreetMap →",
+    days: ["Mån", "Tis", "Ons", "Tor", "Fre", "Lör", "Sön"], months: ["jan", "feb", "mar", "apr", "maj", "jun", "jul", "aug", "sep", "okt", "nov", "dec"], closed: "stängt",
+    townsTop: (names, many, n) => `<b>${names.join(" och ")}</b> har flest rosterier (${n}). `,
+    townsAll: (n, one) => `${n} orter totalt, och ${one} av dem har bara ett.`,
+    townsUntagged: n => ` ${n} ${n === 1 ? "plats saknar" : "platser saknar"} ort.`,
+    townSub: (open, hours, n) => `${open ? `${open} öppet nu · ` : ""}${hours} av ${n} med öppettider`,
+    noTown: "Ingen ort matchar filtren.",
+    noLocation: "Din position är inte tillgänglig här, så listan sorteras på namn.",
+    loadError: "Kunde inte ladda data: ",
+  },
+  en: {
+    docTitle: "Coffee roasters of Sweden", langBtn: "Svenska", langName: "Switch to Swedish",
+    sheet: "Show or hide the list", title: 'Coffee roasters <em class="key">of Sweden</em>',
+    lead: "Find a roastery near you and see who is open right now.",
+    roaster: "roaster", roasters: "roasters", inView: " in view", openNow: "open now", townsArrow: "towns →", showTowns: "Show towns",
+    search: "Search name or town", searchAria: "Search roasters", filters: "Filters", fOpen: "Open now", fHours: "With hours",
+    view: "View", vList: "Roasters", vTowns: "Towns", sort: "Sort", sortName: "Name A–Z", sortNear: "Nearest to me", sortView: "In map view",
+    aboutBtn: "About this map", back: "Back to the list", mapAria: "Map of coffee roasters in Sweden",
+    aWhatH: "What is on the map",
+    aWhat: "Places in Sweden where coffee is roasted: roasteries, and cafés that roast their own beans. Some points are a roaster's café or shop rather than the roastery itself.",
+    legRoastery: "Roastery", legCafe: "Café that roasts on site",
+    aHoursH: "Opening hours",
+    aHours: "Hours come from OpenStreetMap and many roasteries have none listed. “Open now” uses your device's clock and does not know about public holidays, so check the roaster's own site before a long trip.",
+    aMissingH: "Missing or wrong?",
+    aMissing: 'The map shows what is in OpenStreetMap. Add a roastery or fix its details there, and it appears here after the next weekly update. <a href="https://www.openstreetmap.org/" target="_blank" rel="noopener">Open OpenStreetMap →</a>',
+    aDataH: "Data",
+    aData: "Every object tagged <code>craft=coffee_roaster</code> or <code>microroasting=yes</code> in Sweden. E-mail addresses and phone numbers are left out.",
+    tilesNote: "Map tiles cannot load here, so the background is a plain outline of Sweden.",
+    aCreditsH: "Credits",
+    aCredits: 'Data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>, ODbL. Map tiles <a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a>, © OpenMapTiles. Outline of Sweden from Natural Earth. Built with MapLibre GL JS.',
+    aBy: 'A personal project by Lukas Posolda. <a href="https://github.com/lukasposolda-qwertz/coffee-roasters-of-sweden" target="_blank" rel="noopener">Source on GitHub →</a>',
+    snap: (d, n) => `OpenStreetMap snapshot ${d} · ${n} places`,
+    empty: "No roaster matches these filters.", until: t => `until ${t}`,
+    kindRoaster: "Roaster", kindMicro: "Roasting café", kindCafe: "café", kindShop: "shop", kindSpecialty: "specialty",
+    openUntil: t => `OPEN NOW · UNTIL ${t}`, openNoUntil: "OPEN NOW", closedOpens: t => `CLOSED NOW · OPENS ${t}`, closedNow: "CLOSED NOW",
+    asTagged: "As tagged:", hoursAsTagged: "Hours as tagged:", osmLink: "View or edit on OpenStreetMap →",
+    days: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], months: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], closed: "closed",
+    townsTop: (names, many, n) => `<b>${names.join(" and ")}</b> ${many ? "share" : "has"} the most roasters (${n}). `,
+    townsAll: (n, one) => `${n} towns in all, and ${one} of them have just one.`,
+    townsUntagged: n => ` ${n} ${n === 1 ? "place has" : "places have"} no town.`,
+    townSub: (open, hours, n) => `${open ? `${open} open now · ` : ""}${hours} of ${n} with hours`,
+    noTown: "No town matches these filters.",
+    noLocation: "Your location is not available here, so the list stays sorted by name.",
+    loadError: "Could not load the data: ",
+  },
+};
+let LANG = "sv";
+try {
+  const fromUrl = new URLSearchParams(location.search).get("lang");
+  const saved = localStorage.getItem("roasters-lang");
+  LANG = I18N[fromUrl] ? fromUrl : I18N[saved] ? saved : "sv";
+} catch (e) { /* storage blocked: stay Swedish */ }
+const T = () => I18N[LANG];
+function applyLang() {
+  const t = T();
+  document.documentElement.lang = LANG;
+  document.title = t.docTitle;
+  document.querySelectorAll("[data-i18n]").forEach(el => el.textContent = t[el.dataset.i18n]);
+  document.querySelectorAll("[data-i18n-html]").forEach(el => el.innerHTML = t[el.dataset.i18nHtml]);
+  document.querySelectorAll("[data-i18n-ph]").forEach(el => el.placeholder = t[el.dataset.i18nPh]);
+  document.querySelectorAll("[data-i18n-aria]").forEach(el => el.setAttribute("aria-label", t[el.dataset.i18nAria]));
+  const b = $("langBtn");
+  b.textContent = t.langBtn; b.lang = LANG === "sv" ? "en" : "sv"; b.setAttribute("aria-label", t.langName);
+}
+function setLang(l) {
+  LANG = l;
+  try { localStorage.setItem("roasters-lang", l); } catch (e) { /* not remembered */ }
+  applyLang();
+  if (DATA.length) {
+    render();
+    if (snapshot) $("snap").textContent = T().snap(snapshot, fmt(DATA.length));
+    const r = DATA.find(x => x.id === activeId);
+    if (popup && r) popup.setHTML(popupHTML(r));
+  }
+}
+
 
 /* ---------- opening hours: a small parser for the common OSM forms ---------- */
 const DAYS = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"], DEN = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -71,13 +175,13 @@ function ohTable(oh) {
     const last = rows[rows.length - 1];
     if (last && last.key === key && last.to === i - 1) last.to = i; else rows.push({ from: i, to: i, key });
   });
-  let h = rows.map(r => `<tr><td>${DEN[r.from]}${r.to > r.from ? "–" + DEN[r.to] : ""}</td><td>${r.key}</td></tr>`).join("");
-  if (oh.offMonths.length) h += `<tr><td>${[...new Set(oh.offMonths)].map(m => MONTHS[m]).join(", ")}</td><td>closed</td></tr>`;
+  let h = rows.map(r => `<tr><td>${T().days[r.from]}${r.to > r.from ? "–" + T().days[r.to] : ""}</td><td>${r.key === "closed" ? T().closed : r.key}</td></tr>`).join("");
+  if (oh.offMonths.length) h += `<tr><td>${[...new Set(oh.offMonths)].map(m => T().months[m]).join(", ")}</td><td>${T().closed}</td></tr>`;
   return `<table>${h}</table>`;
 }
 
 /* ---------- state ---------- */
-let DATA = [], me = null, activeId = null, popup = null, tilesOk = false, map, view = "list";
+let snapshot = "", DATA = [], me = null, activeId = null, popup = null, tilesOk = false, map, view = "list";
 const filt = { q: "", hours: false, open: false, town: null };
 const norm = s => (s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
 function km(a, b) {
@@ -164,8 +268,10 @@ function paintPoints() {
 /* ---------- popup ---------- */
 function popupHTML(r) {
   const st = stateNow(r.oh);
-  const kind = (r.group === "micro" ? ["Roasting café"] : ["Roaster"]).concat(r.kind.filter(k => !(r.group === "micro" && k === "café")))
-    .concat(r.specialty ? ["specialty"] : []).join(" · ");
+  const t = T();
+  const kind = (r.group === "micro" ? [t.kindMicro] : [t.kindRoaster])
+    .concat(r.kind.filter(k => !(r.group === "micro" && k === "café")).map(k => k === "café" ? t.kindCafe : k === "shop" ? t.kindShop : k))
+    .concat(r.specialty ? [t.kindSpecialty] : []).join(" · ");
   let h = `<div class="pp"><span class="label">${esc(kind)}</span><h3>${esc(r.name)}</h3>`;
   if (r.address || r.city) h += `<span class="small">${esc(r.address || r.city)}</span>`;
   const links = [], w = safeUrl(r.website), ig = safeUrl(r.instagram);
@@ -173,12 +279,12 @@ function popupHTML(r) {
   if (ig) links.push(`<a href="${esc(ig)}" target="_blank" rel="noopener">Instagram →</a>`);
   if (links.length) h += `<div class="links">${links.join("")}</div>`;
   if (r.oh) {
-    if (st) h += st.open ? `<span class="state open">OPEN NOW${st.until ? " · UNTIL " + hhmm(st.until) : ""}</span>`
-      : `<span class="state">CLOSED NOW${st.opens != null ? " · OPENS " + hhmm(st.opens) : ""}</span>`;
+    if (st) h += st.open ? `<span class="state open">${st.until ? t.openUntil(hhmm(st.until)) : t.openNoUntil}</span>`
+      : `<span class="state">${st.opens != null ? t.closedOpens(hhmm(st.opens)) : t.closedNow}</span>`;
     h += ohTable(r.oh);
-    if (r.oh.uncertain) h += `<span class="raw">As tagged: ${esc(r.opening_hours)}</span>`;
-  } else if (r.opening_hours) h += `<span class="raw">Hours as tagged: ${esc(r.opening_hours)}</span>`;
-  h += `<a class="osm" href="https://www.openstreetmap.org/${esc(r.id)}" target="_blank" rel="noopener">View or edit on OpenStreetMap →</a>`;
+    if (r.oh.uncertain) h += `<span class="raw">${t.asTagged} ${esc(r.opening_hours)}</span>`;
+  } else if (r.opening_hours) h += `<span class="raw">${t.hoursAsTagged} ${esc(r.opening_hours)}</span>`;
+  h += `<a class="osm" href="https://www.openstreetmap.org/${esc(r.id)}" target="_blank" rel="noopener">${t.osmLink}</a>`;
   return h + "</div>";
 }
 const paddingFor = () => isPhone() ? { top: 60, bottom: 30, left: 20, right: 20 } : { top: 40, bottom: 40, left: 40, right: 40 };
@@ -204,16 +310,16 @@ function render() {
     properties: { id: r.id, group: r.group, name: r.name }, geometry: { type: "Point", coordinates: [r.lon, r.lat] } })) });
   const n = rows.length;
   $("count").textContent = fmt(n);
-  $("countLabel").textContent = (n === 1 ? "roaster" : "roasters") + (sort === "view" ? " in view" : "");
+  $("countLabel").textContent = (n === 1 ? T().roaster : T().roasters) + (sort === "view" ? T().inView : "");
   $("openCount").textContent = fmt(rows.filter(r => stateNow(r.oh)?.open).length);
   $("townCount").textContent = fmt(new Set(rows.map(r => r.townKey).filter(Boolean)).size);
   $("list").innerHTML = n ? rows.map(r => {
     const st = stateNow(r.oh);
-    const side = sort === "near" && me ? `${r._d < 10 ? r._d.toFixed(1) : Math.round(r._d)} km` : st?.open ? `until ${hhmm(st.until)}` : "";
+    const side = sort === "near" && me ? `${r._d < 10 ? r._d.toFixed(1) : Math.round(r._d)} km` : st?.open ? T().until(hhmm(st.until)) : "";
     return `<li data-id="${esc(r.id)}" tabindex="0"><span class="dot ${r.group === "micro" ? "s2" : "s1"}"></span>
       <span><span class="nm">${esc(r.name)}</span><span class="meta">${esc(r.city && r.town && norm(r.city) !== norm(r.town) ? `${r.city}, ${r.town}` : r.town || r.city || "")}</span></span>
       <span class="side${st?.open && !(sort === "near" && me) ? " open" : ""}">${side}</span></li>`;
-  }).join("") : `<li class="empty">No roaster matches these filters.</li>`;
+  }).join("") : `<li class="empty">${T().empty}</li>`;
   markActive();
   renderTowns();
   const cnt = f => fmt(DATA.filter(f).length);
@@ -223,20 +329,19 @@ function render() {
   if (filt.town) $("townChip").textContent = `${DATA.find(r => r.townKey === filt.town)?.town} ×`;
 }
 function renderTowns() {
-  const rows = base(), T = towns(rows);
-  const max = T[0]?.n || 1, single = T.filter(t => t.n === 1).length, untagged = rows.filter(r => !r.townKey).length;
+  const rows = base(), TW = towns(rows);
+  const max = TW[0]?.n || 1, single = TW.filter(t => t.n === 1).length, untagged = rows.filter(r => !r.townKey).length;
   let h = "";
-  if (T.length) {
-    const top = T.filter(t => t.n === T[0].n).map(t => esc(t.name));
-    h += `<li class="summary"><b>${top.join(" and ")}</b> ${top.length > 1 ? "share" : "has"} the most roasters (${T[0].n}). `
-      + `${fmt(T.length)} towns in all, and ${fmt(single)} of them have just one.`
-      + (untagged ? ` ${fmt(untagged)} ${untagged === 1 ? "place has" : "places have"} no town in OpenStreetMap.` : "") + `</li>`;
+  if (TW.length) {
+    const top = TW.filter(t => t.n === TW[0].n).map(t => esc(t.name));
+    h += `<li class="summary">${T().townsTop(top, top.length > 1, TW[0].n)}${T().townsAll(fmt(TW.length), fmt(single))}`
+      + (untagged ? T().townsUntagged(untagged) : "") + `</li>`;
   }
-  h += T.map(t => `<li data-town="${esc(t.key)}" tabindex="0" class="${t.key === filt.town ? "sel" : ""}">
+  h += TW.map(t => `<li data-town="${esc(t.key)}" tabindex="0" class="${t.key === filt.town ? "sel" : ""}">
       <span class="tn">${esc(t.name)}</span>
       <span class="bar" aria-hidden="true"><span style="width:${Math.max(4, Math.round(t.n / max * 100))}%"></span></span>
-      <span class="sub">${t.open ? `${t.open} open now · ` : ""}${t.hours} of ${t.n} with hours</span>
-      <span class="cnt">${t.n}</span></li>`).join("") || `<li class="summary">No town matches these filters.</li>`;
+      <span class="sub">${T().townSub(t.open, t.hours, t.n)}</span>
+      <span class="cnt">${t.n}</span></li>`).join("") || `<li class="summary">${T().noTown}</li>`;
   $("towns").innerHTML = h;
 }
 function setView(v) {
@@ -267,6 +372,8 @@ function pickTown(key) {
 /* ---------- controls ---------- */
 function press(el, on) { el.setAttribute("aria-pressed", String(on)); }
 function wire() {
+  applyLang();
+  $("langBtn").onclick = () => setLang(LANG === "sv" ? "en" : "sv");
   $("fHours").onclick = () => { filt.hours = !filt.hours; press($("fHours"), filt.hours); render(); };
   $("fOpen").onclick = () => { filt.open = !filt.open; press($("fOpen"), filt.open); render(); };
   $("townChip").onclick = () => pickTown(null);
@@ -275,7 +382,7 @@ function wire() {
   $("sort").addEventListener("change", e => {
     if (e.target.value === "near" && !me) {
       navigator.geolocation?.getCurrentPosition(p => { me = { lat: p.coords.latitude, lon: p.coords.longitude }; render(); },
-        () => { $("sort").value = "name"; render(); note("Your location is not available here, so the list stays sorted by name."); });
+        () => { $("sort").value = "name"; render(); note(T().noLocation); });
     }
     render();
   });
@@ -366,12 +473,13 @@ async function start() {
   await new Promise(r => map.once("load", r));
   addLayers(); recolour(); render();
   if (!hadHash) map.fitBounds([[10.9, 55.2], [24.2, 69.1]], { padding: paddingFor(), duration: 0 });
-  $("snap").textContent = `OpenStreetMap snapshot ${data.snapshot} · ${fmt(DATA.length)} places`;
+  snapshot = data.snapshot;
+  $("snap").textContent = T().snap(data.snapshot, fmt(DATA.length));
   $("tilesNote").hidden = tilesOk;
   const mq = matchMedia("(prefers-color-scheme: dark)");
   const retheme = () => { recolour(); paintPoints(); render(); };
   mq.addEventListener?.("change", retheme);
   new MutationObserver(retheme).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 }
-start().catch(err => { $("countLabel").textContent = "Could not load the data: " + err.message; });
+start().catch(err => { $("countLabel").textContent = T().loadError + err.message; });
 })();

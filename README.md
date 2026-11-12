@@ -17,6 +17,10 @@ Every object in Sweden tagged `craft=coffee_roaster`, plus cafés and shops tagg
 
 E-mail addresses and phone numbers are left out of the data on purpose.
 
+## Language
+
+Swedish by default, English with the toggle in the header. The choice is remembered in the browser, and `?lang=en` opens the English version directly.
+
 ## Design
 
 Fieldnote, my personal visual identity: IBM Plex Sans and IBM Plex Mono, spruce and ochre on paper, hairlines. The main view keeps only what helps you find a roastery; context and credits sit under "About". Light and dark themes follow the system setting.
